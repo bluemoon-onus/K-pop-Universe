@@ -8,6 +8,7 @@ import { CountdownTimer } from "@/components/common/countdown-timer"
 import { FollowButton } from "@/components/common/follow-button"
 import { SellerBadge } from "@/components/common/seller-badge"
 import { StatusBadge } from "@/components/common/status-badge"
+import { useToast } from "@/components/layout/toast-provider"
 import { useUserPreferences } from "@/components/layout/user-preferences-provider"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -33,7 +34,9 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
   const locale = useLocale()
   const tCommon = useTranslations("common")
   const tConcerts = useTranslations("concerts")
+  const tToast = useTranslations("common.toast")
   const { timeZone } = useUserPreferences()
+  const { pushToast } = useToast()
   const artist = getConcertArtist(concert)
   const phases = getConcertPhases(concert.id)
   const notice = getConcertNotice(concert.id)
@@ -57,11 +60,19 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
           text: concert.title,
           url: shareUrl,
         })
+        pushToast({
+          tone: "info",
+          title: tToast("linkShared"),
+        })
         return
       }
 
       await navigator.clipboard.writeText(shareUrl)
       setShareState("copied")
+      pushToast({
+        tone: "success",
+        title: tToast("linkCopied"),
+      })
       window.setTimeout(() => setShareState("idle"), 2000)
     } catch {
       setShareState("idle")
@@ -111,6 +122,7 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
               <button
                 type="button"
                 disabled
+                aria-disabled="true"
                 className={`${buttonVariants({ variant: "default" })} cursor-not-allowed opacity-60`}
               >
                 {tCommon("buttons.goToOfficialSite")}
@@ -344,6 +356,7 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
               <button
                 type="button"
                 disabled
+                aria-disabled="true"
                 className={`${buttonVariants({ variant: "default" })} w-full cursor-not-allowed justify-center opacity-60`}
               >
                 {tCommon("buttons.goToOfficialSite")}

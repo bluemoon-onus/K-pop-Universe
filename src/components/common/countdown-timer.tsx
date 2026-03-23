@@ -32,6 +32,7 @@ export function CountdownTimer({ targetDate }: { targetDate: Date | string }) {
     [targetDate],
   )
   const [secondsLeft, setSecondsLeft] = useState(() => differenceInSeconds(target, new Date()))
+  const isUrgent = secondsLeft > 0 && secondsLeft <= 60 * 60 * 24
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -41,15 +42,27 @@ export function CountdownTimer({ targetDate }: { targetDate: Date | string }) {
     return () => window.clearInterval(timer)
   }, [target])
 
+  const formattedText = formatCountdown(secondsLeft, {
+    days: t("days"),
+    hours: t("hours"),
+    minutes: t("minutes"),
+    seconds: t("seconds"),
+    live: t("live"),
+  })
+
   return (
-    <span className="rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
-      {formatCountdown(secondsLeft, {
-        days: t("days"),
-        hours: t("hours"),
-        minutes: t("minutes"),
-        seconds: t("seconds"),
-        live: t("live"),
-      })}
+    <span
+      role="timer"
+      aria-label={`${t("ariaLabel")}: ${formattedText}`}
+      aria-live="polite"
+      aria-atomic="true"
+      className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+        isUrgent
+          ? "border-primary/30 bg-primary/10 text-primary shadow-lg shadow-primary/10"
+          : "border-accent/25 bg-accent/10 text-accent"
+      }`}
+    >
+      {formattedText}
     </span>
   )
 }

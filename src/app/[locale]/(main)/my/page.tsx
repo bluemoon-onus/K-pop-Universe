@@ -6,9 +6,11 @@ import { ArtistGrid } from "@/components/artists/artist-grid"
 import { AlertSettingPanel } from "@/components/common/alert-setting-panel"
 import { StatePanel } from "@/components/common/state-panel"
 import { LocaleSwitcher } from "@/components/layout/locale-switcher"
+import { ThemeToggle } from "@/components/layout/theme-toggle"
 import { useUserPreferences } from "@/components/layout/user-preferences-provider"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
 import { mockArtists, featuredArtists } from "@/data/mock-artists"
 import { getConcertById } from "@/data/mock-concerts"
 
@@ -65,14 +67,18 @@ export default function MyPage() {
             />
           ) : (
             <>
-              <div className="flex flex-wrap gap-2">
+              <div role="tablist" className="flex flex-wrap gap-2">
                 <Button
+                  role="tab"
+                  aria-selected={activeTab === "artists"}
                   variant={activeTab === "artists" ? "default" : "outline"}
                   onClick={() => setActiveTab("artists")}
                 >
                   {tAlerts("tabs.artists")}
                 </Button>
                 <Button
+                  role="tab"
+                  aria-selected={activeTab === "alerts"}
                   variant={activeTab === "alerts" ? "default" : "outline"}
                   onClick={() => setActiveTab("alerts")}
                 >
@@ -137,14 +143,18 @@ export default function MyPage() {
               <p className="text-sm text-muted-foreground">{tAlerts("languageSetting")}</p>
               <LocaleSwitcher className="justify-between" />
             </div>
+            <div className="space-y-2">
+              <p className="text-sm text-muted-foreground">{tAlerts("themeSetting")}</p>
+              <ThemeToggle className="w-full justify-between" />
+            </div>
             <label className="block space-y-2">
               <span className="text-sm text-muted-foreground">{tAlerts("emailLabel")}</span>
-              <input
+              <Input
                 type="email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder={tAlerts("emailPlaceholder")}
-                className="w-full rounded-2xl border border-border/70 bg-background/80 px-3 py-3 text-sm text-foreground outline-none transition focus:border-ring"
+                className="h-12 rounded-2xl border-border/70 bg-background/80 px-3"
               />
             </label>
             <label className="block space-y-2">

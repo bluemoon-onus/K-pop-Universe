@@ -3,6 +3,7 @@
 import { BellIcon, MailIcon } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useEffect, useReducer } from "react"
+import { useToast } from "@/components/layout/toast-provider"
 import { useUserPreferences } from "@/components/layout/user-preferences-provider"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -91,7 +92,9 @@ export function AlertSettingPanel({
 }) {
   const t = useTranslations("alerts")
   const tCommon = useTranslations("common.buttons")
+  const tToast = useTranslations("common.toast")
   const { getAlertPreference, saveAlertPreference } = useUserPreferences()
+  const { pushToast } = useToast()
   const preference = getAlertPreference(concertId)
   const hydratedSettings = {
     remind24h: preference?.remind24h ?? true,
@@ -147,6 +150,7 @@ export function AlertSettingPanel({
               <button
                 key={reminder.key}
                 type="button"
+                aria-pressed={active}
                 disabled={disabled}
                 onClick={() => dispatch({ type: "toggle-reminder", key: reminder.key })}
                 className={cn(
@@ -163,6 +167,7 @@ export function AlertSettingPanel({
         </div>
         <button
           type="button"
+          aria-pressed={state.settings.emailEnabled}
           disabled={disabled}
           onClick={() => dispatch({ type: "toggle-email" })}
           className={cn(
@@ -191,6 +196,10 @@ export function AlertSettingPanel({
 
             if (snapshot === state.savedSnapshot) {
               dispatch({ type: "duplicate" })
+              pushToast({
+                tone: "warning",
+                title: tToast("alertDuplicate"),
+              })
               return
             }
 
@@ -199,6 +208,10 @@ export function AlertSettingPanel({
               pushEnabled: false,
             })
             dispatch({ type: "saved", savedSnapshot: snapshot })
+            pushToast({
+              tone: "success",
+              title: tToast("alertSaved"),
+            })
           }}
         >
           {tCommon("saveAlerts")}

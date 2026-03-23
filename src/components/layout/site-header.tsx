@@ -7,6 +7,7 @@ import { Link, stripLocaleSegment } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 import { LocaleSwitcher } from "./locale-switcher"
 import { MobileNav } from "./mobile-nav"
+import { ThemeToggle } from "./theme-toggle"
 
 const navItems = [
   { href: "/", key: "home" },
@@ -35,7 +36,7 @@ export function SiteHeader() {
               <p className="text-xs text-muted-foreground">{t("tagline")}</p>
             </div>
           </Link>
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-1 lg:flex" aria-label={t("navigation.mainNav")}>
             {navItems.map((item) => {
               const isActive =
                 item.href === "/"
@@ -59,6 +60,7 @@ export function SiteHeader() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <ThemeToggle />
           <LocaleSwitcher />
           <Link href="/my" className={buttonVariants({ variant: "outline" })}>
             {t("buttons.signIn")}

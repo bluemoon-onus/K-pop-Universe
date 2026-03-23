@@ -10,7 +10,8 @@
       "home": "首页",
       "artists": "艺人",
       "concerts": "演唱会",
-      "my": "我的"
+      "my": "我的",
+      "mainNav": "主导航"
     },
     "buttons": {
       "browseConcerts": "浏览演唱会",
@@ -90,7 +91,8 @@
       "minutes": "分",
       "seconds": "秒",
       "live": "开售中",
-      "ended": "已关闭"
+      "ended": "已关闭",
+      "ariaLabel": "票务开售倒计时"
     },
     "states": {
       "loadingTitle": "正在加载最新票务信息",

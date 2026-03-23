@@ -10,7 +10,8 @@
       "home": "홈",
       "artists": "아티스트",
       "concerts": "공연",
-      "my": "마이"
+      "my": "마이",
+      "mainNav": "메인 내비게이션"
     },
     "buttons": {
       "browseConcerts": "공연 둘러보기",
@@ -96,7 +97,8 @@
       "minutes": "분",
       "seconds": "초",
       "live": "오픈 중",
-      "ended": "마감"
+      "ended": "마감",
+      "ariaLabel": "티켓 오픈 카운트다운"
     },
     "states": {
       "loadingTitle": "최신 예매 신호를 불러오는 중",
@@ -108,6 +110,20 @@
     },
     "localeSwitcher": {
       "label": "언어"
+    },
+    "theme": {
+      "label": "테마",
+      "light": "라이트",
+      "dark": "다크"
+    },
+    "toast": {
+      "dismiss": "닫기",
+      "followed": "아티스트를 팔로우 목록에 추가했습니다.",
+      "unfollowed": "아티스트를 팔로우 목록에서 제거했습니다.",
+      "alertSaved": "알림 설정을 저장했습니다.",
+      "alertDuplicate": "같은 알림 설정이 이미 활성화되어 있습니다.",
+      "linkCopied": "공연 링크를 복사했습니다.",
+      "linkShared": "공유 창을 열었습니다."
     },
     "footer": {
       "disclaimerTitle": "공식 링크 안내용 서비스",
@@ -156,6 +172,9 @@
     "calendarSoon": "캘린더 뷰는 다음 단계에서 추가됩니다",
     "ticketPhasesCount": "{count, plural, one {#개 티켓 단계} other {#개 티켓 단계}}",
     "filters": {
+      "title": "필터",
+      "helper": "판매처, 도시, 상태 기준으로 빠르게 좁혀보세요.",
+      "resultsCount": "{count, plural, one {훑어볼 공연 #개} other {훑어볼 공연 #개}}",
       "searchPlaceholder": "공연, 공연장, 아티스트, 도시 검색",
       "artist": "아티스트",
       "city": "도시",
@@ -163,6 +182,7 @@
       "seller": "판매처",
       "status": "상태",
       "eventType": "이벤트 유형",
+      "dateWindow": "날짜 범위",
       "sortBy": "정렬",
       "allCities": "전체 도시",
       "allCountries": "전체 국가",
@@ -239,6 +259,7 @@
     "emptyAlertsDescription": "공연 상세 페이지에서 알림을 설정하면 여기에 추가됩니다.",
     "settingsTitle": "설정",
     "languageSetting": "언어",
+    "themeSetting": "테마",
     "emailLabel": "이메일",
     "emailPlaceholder": "name@example.com",
     "timezoneLabel": "시간대",

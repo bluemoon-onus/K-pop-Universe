@@ -26,7 +26,10 @@ export function SearchBar({
 
   return (
     <form
-      className={cn("glass-panel flex items-center gap-3 rounded-3xl border border-border/70 p-2", className)}
+      className={cn(
+        "glass-panel flex items-center gap-3 rounded-[1.75rem] border border-border/70 p-2 shadow-xl shadow-black/5 transition duration-200 hover:border-accent/35",
+        className,
+      )}
       onSubmit={(event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         onSubmit?.()
@@ -36,6 +39,7 @@ export function SearchBar({
         <SearchIcon className="size-4 text-muted-foreground" />
         <Input
           type="search"
+          aria-label={placeholder}
           placeholder={placeholder}
           className="border-none bg-transparent px-0 shadow-none focus-visible:ring-0"
           value={value}

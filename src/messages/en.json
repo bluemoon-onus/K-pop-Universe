@@ -10,7 +10,8 @@
       "home": "Home",
       "artists": "Artists",
       "concerts": "Concerts",
-      "my": "My"
+      "my": "My",
+      "mainNav": "Main navigation"
     },
     "buttons": {
       "browseConcerts": "Browse concerts",
@@ -96,7 +97,8 @@
       "minutes": "m",
       "seconds": "s",
       "live": "Open now",
-      "ended": "Closed"
+      "ended": "Closed",
+      "ariaLabel": "Ticket opening countdown"
     },
     "states": {
       "loadingTitle": "Loading the latest ticket signals",
@@ -108,6 +110,20 @@
     },
     "localeSwitcher": {
       "label": "Language"
+    },
+    "theme": {
+      "label": "Theme",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "toast": {
+      "dismiss": "Dismiss",
+      "followed": "Artist added to your follow list.",
+      "unfollowed": "Artist removed from your follow list.",
+      "alertSaved": "Alert settings saved.",
+      "alertDuplicate": "That alert setup is already active.",
+      "linkCopied": "Concert link copied.",
+      "linkShared": "Share sheet opened."
     },
     "footer": {
       "disclaimerTitle": "Official-link utility only",
@@ -156,6 +172,9 @@
     "calendarSoon": "Calendar view is planned next",
     "ticketPhasesCount": "{count, plural, one {# ticket phase} other {# ticket phases}}",
     "filters": {
+      "title": "Filters",
+      "helper": "Tighten by seller, city, and ticket status.",
+      "resultsCount": "{count, plural, one {# concert ready to scan} other {# concerts ready to scan}}",
       "searchPlaceholder": "Search concerts, venues, artists, or cities",
       "artist": "Artists",
       "city": "City",
@@ -163,6 +182,7 @@
       "seller": "Seller",
       "status": "Status",
       "eventType": "Event type",
+      "dateWindow": "Date window",
       "sortBy": "Sort by",
       "allCities": "All cities",
       "allCountries": "All countries",
@@ -239,6 +259,7 @@
     "emptyAlertsDescription": "Set reminders from a concert detail page to build your alert list.",
     "settingsTitle": "Settings",
     "languageSetting": "Language",
+    "themeSetting": "Theme",
     "emailLabel": "Email",
     "emailPlaceholder": "name@example.com",
     "timezoneLabel": "Timezone",
