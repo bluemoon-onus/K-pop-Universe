@@ -1,0 +1,188 @@
+{
+  "common": {
+    "brand": "K-pop Ticket Hub",
+    "tagline": "Official-link discovery and alerts",
+    "navigation": {
+      "home": "Home",
+      "artists": "Artists",
+      "concerts": "Concerts",
+      "my": "My"
+    },
+    "buttons": {
+      "browseConcerts": "Browse concerts",
+      "followArtists": "Follow artists",
+      "viewDetails": "View details",
+      "goToOfficialSite": "Go to official ticket site",
+      "setAlert": "Set alert",
+      "share": "Share",
+      "menu": "Open menu",
+      "close": "Close",
+      "follow": "Follow",
+      "following": "Following",
+      "signIn": "Log in",
+      "retry": "Try again",
+      "saveAlerts": "Save alert settings",
+      "search": "Search",
+      "seeAll": "See all",
+      "browseArtists": "Browse artists"
+    },
+    "labels": {
+      "ticketOpens": "Ticket opens",
+      "officialOnly": "Official links only",
+      "lastUpdated": "Last updated",
+      "fanclubPresale": "Fanclub presale",
+      "generalSale": "General sale",
+      "additionalSale": "Additional sale",
+      "venue": "Venue",
+      "city": "City",
+      "country": "Country",
+      "timezone": "Timezone",
+      "priceRange": "Price range",
+      "agePolicy": "Age policy",
+      "officialSeller": "Official seller",
+      "source": "Official source",
+      "yourTime": "Your time",
+      "sourceTime": "Source time",
+      "dataFreshness": "Data freshness",
+      "openingSoon": "Opening soon",
+      "thisWeek": "This week",
+      "later": "Later",
+      "calendarView": "Calendar view",
+      "listView": "List view",
+      "status": "Status"
+    },
+    "status": {
+      "upcoming": "Upcoming",
+      "open": "Open now",
+      "sold_out": "Sold out",
+      "ended": "Ended",
+      "cancelled": "Cancelled"
+    },
+    "sellers": {
+      "NOL": "NOL Ticket",
+      "INTERPARK": "Interpark",
+      "TICKETLINK": "Ticketlink",
+      "YES24": "YES24",
+      "WEVERSE": "Weverse",
+      "OTHER": "Official partner"
+    },
+    "categories": {
+      "boy_group": "Boy Group",
+      "girl_group": "Girl Group",
+      "solo": "Solo",
+      "band": "Band",
+      "other": "Other"
+    },
+    "eventTypes": {
+      "concert": "Concert",
+      "fan_meeting": "Fan meeting",
+      "festival": "Festival",
+      "musical": "Musical",
+      "other": "Other"
+    },
+    "countdown": {
+      "days": "d",
+      "hours": "h",
+      "minutes": "m",
+      "seconds": "s",
+      "live": "Open now",
+      "ended": "Closed"
+    },
+    "states": {
+      "loadingTitle": "Loading the latest ticket signals",
+      "loadingDescription": "We are lining up artist pages, seller links, and opening windows for you.",
+      "emptyTitle": "No concerts matched this view yet",
+      "emptyDescription": "Try another artist, city, or timing window. We only surface official links.",
+      "errorTitle": "Something interrupted the page build",
+      "errorDescription": "Refresh the page or try again in a moment."
+    },
+    "localeSwitcher": {
+      "label": "Language",
+      "en": "English",
+      "ko": "Korean"
+    },
+    "footer": {
+      "disclaimerTitle": "Official-link utility only",
+      "disclaimerBody": "We do not sell tickets. Ticket times, prices, and venue policies can change at any time, so always double-check the official seller before checkout.",
+      "sellerLinks": "Official seller shortcuts",
+      "freshness": "Every concert detail page shows its last verification time."
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Never miss K-pop ticket openings again",
+      "title": "Track presales, convert time zones, and move to the official seller before the rush starts.",
+      "subtitle": "Artist-first discovery for fans who want a fast, structured path from discovery to checkout prep.",
+      "searchPlaceholder": "Search artist, concert, or city"
+    },
+    "sections": {
+      "upcoming": "Upcoming Ticket Opens",
+      "featuredArtists": "Featured Artists",
+      "monthConcerts": "This Month's K-pop Concerts",
+      "whyTitle": "Why fans use this service"
+    },
+    "why": {
+      "presaleTitle": "Fanclub presale clarity",
+      "presaleBody": "See membership requirements and ticket phases before the queue opens.",
+      "timezoneTitle": "Timezone conversion",
+      "timezoneBody": "View source time and your local time side by side.",
+      "officialTitle": "Official links only",
+      "officialBody": "Move from our detail page straight to the trusted seller or promoter source."
+    }
+  },
+  "artists": {
+    "title": "Find artists fast, then follow the ones you care about.",
+    "subtitle": "Browse by category, scan both Korean and English names, and keep your next ticket opening on one shortlist.",
+    "searchPlaceholder": "Search artists in Korean or English",
+    "featuredLabel": "Featured now",
+    "trackedConcerts": "{count, plural, one {# concert currently tracked} other {# concerts currently tracked}}"
+  },
+  "concerts": {
+    "title": "Scan concerts by ticket urgency, not just by date.",
+    "subtitle": "Structured cards keep seller, status, venue, and opening time visible at a glance.",
+    "listViewActive": "List view active",
+    "calendarSoon": "Calendar view is planned next",
+    "ticketPhasesCount": "{count, plural, one {# ticket phase} other {# ticket phases}}",
+    "detail": {
+      "overview": "Overview",
+      "ticketOpening": "Ticket Opening",
+      "membership": "Fanclub / Membership Requirements",
+      "prices": "Prices",
+      "venueInfo": "Venue Info",
+      "importantNotes": "Important Notes",
+      "officialSource": "Official Source",
+      "missingPrices": "Price details are still pending from the official seller.",
+      "missingPresale": "No fanclub presale window has been published yet.",
+      "externalUnavailable": "Official seller link is temporarily unavailable.",
+      "tba": "TBA",
+      "attendeeNameRequired": "Attendee name should match the ID used at the venue.",
+      "attendeeNameNotListed": "No attendee-name match rule is currently listed.",
+      "passportRequired": "Passport or government ID may be required for ticket pickup.",
+      "passportNotListed": "Passport requirement is not currently listed.",
+      "onsitePickupOnly": "Ticket pickup is marked as on-site only.",
+      "onsitePickupNotListed": "No on-site-only pickup restriction is listed.",
+      "antiMacroRule": "Bulk or macro-style purchases may be cancelled.",
+      "antiMacroNotListed": "No anti-macro warning was detected yet."
+    }
+  },
+  "alerts": {
+    "title": "My Alerts / My Artists",
+    "subtitle": "Keep followed artists and reminder timing in one place while email is the MVP delivery channel.",
+    "remind24h": "24 hours before",
+    "remind1h": "1 hour before",
+    "remind10m": "10 minutes before",
+    "emailEnabled": "Email alerts enabled",
+    "pushSoon": "Web push comes after MVP",
+    "panelTitle": "Ticket opening alerts",
+    "panelBody": "Choose the reminders you want before this sale starts.",
+    "success": "Alert saved. We will watch this opening for you.",
+    "duplicate": "This alert setup is already active.",
+    "emailOn": "On",
+    "emailOff": "Off"
+  },
+  "auth": {
+    "signIn": "Log in",
+    "signUp": "Create account",
+    "hint": "Login, follow artists, and keep your reminders synced."
+  }
+}
