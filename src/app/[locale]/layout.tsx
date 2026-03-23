@@ -1,12 +1,33 @@
+import type { Metadata } from "next"
 import { NextIntlClientProvider } from "next-intl"
-import { getMessages, setRequestLocale } from "next-intl/server"
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server"
 import { notFound } from "next/navigation"
 import { AppProviders } from "@/components/layout/app-providers"
 import { getLocaleDirection } from "@/lib/i18n"
-import { locales, type AppLocale } from "@i18n/routing"
+import { locales, isValidLocale } from "@i18n/routing"
+import "../globals.css"
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+
+  if (!isValidLocale(locale)) {
+    return {}
+  }
+
+  const t = await getTranslations({ locale, namespace: "common.metadata" })
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  }
 }
 
 export default async function LocaleLayout({
@@ -18,7 +39,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params
 
-  if (!locales.includes(locale as AppLocale)) {
+  if (!isValidLocale(locale)) {
     notFound()
   }
 
@@ -27,12 +48,21 @@ export default async function LocaleLayout({
   const messages = await getMessages()
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      <AppProviders>
-        <div dir={getLocaleDirection(locale)} className="flex min-h-screen flex-col">
-          {children}
-        </div>
-      </AppProviders>
-    </NextIntlClientProvider>
+    <html
+      lang={locale}
+      dir={getLocaleDirection(locale)}
+      suppressHydrationWarning
+      className="h-full antialiased"
+    >
+      <body className="min-h-full flex flex-col">
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <AppProviders>
+            <div className="flex min-h-screen flex-col">
+              {children}
+            </div>
+          </AppProviders>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   )
 }

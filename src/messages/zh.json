@@ -1,0 +1,190 @@
+{
+  "common": {
+    "brand": "K-pop Ticket Hub",
+    "tagline": "官方链接发现与提醒",
+    "metadata": {
+      "title": "K-pop Ticket Hub",
+      "description": "全球K-pop演唱会发现与票务开售提醒平台，仅提供官方售票链接。"
+    },
+    "navigation": {
+      "home": "首页",
+      "artists": "艺人",
+      "concerts": "演唱会",
+      "my": "我的"
+    },
+    "buttons": {
+      "browseConcerts": "浏览演唱会",
+      "followArtists": "关注艺人",
+      "viewDetails": "查看详情",
+      "goToOfficialSite": "前往官方售票",
+      "setAlert": "设置提醒",
+      "share": "分享",
+      "menu": "打开菜单",
+      "close": "关闭",
+      "follow": "关注",
+      "following": "已关注",
+      "signIn": "登录",
+      "retry": "重试",
+      "saveAlerts": "保存提醒设置",
+      "search": "搜索",
+      "seeAll": "查看全部",
+      "browseArtists": "浏览艺人"
+    },
+    "labels": {
+      "ticketOpens": "开票时间",
+      "officialOnly": "仅限官方链接",
+      "lastUpdated": "最后更新",
+      "fanclubPresale": "粉丝团预售",
+      "generalSale": "公开售票",
+      "additionalSale": "补票",
+      "venue": "场馆",
+      "city": "城市",
+      "country": "国家",
+      "timezone": "时区",
+      "priceRange": "价格区间",
+      "agePolicy": "年龄限制",
+      "officialSeller": "官方售票",
+      "source": "官方来源",
+      "yourTime": "您的时间",
+      "sourceTime": "来源时间",
+      "dataFreshness": "数据时效",
+      "openingSoon": "即将开票",
+      "thisWeek": "本周",
+      "later": "之后",
+      "calendarView": "日历视图",
+      "listView": "列表视图",
+      "status": "状态"
+    },
+    "status": {
+      "upcoming": "即将开售",
+      "open": "开售中",
+      "sold_out": "已售罄",
+      "ended": "已结束",
+      "cancelled": "已取消"
+    },
+    "sellers": {
+      "NOL": "NOL Ticket",
+      "INTERPARK": "Interpark",
+      "TICKETLINK": "Ticketlink",
+      "YES24": "YES24",
+      "WEVERSE": "Weverse",
+      "OTHER": "官方合作方"
+    },
+    "categories": {
+      "boy_group": "男团",
+      "girl_group": "女团",
+      "solo": "个人",
+      "band": "乐队",
+      "other": "其他"
+    },
+    "eventTypes": {
+      "concert": "演唱会",
+      "fan_meeting": "粉丝见面会",
+      "festival": "音乐节",
+      "musical": "音乐剧",
+      "other": "其他"
+    },
+    "countdown": {
+      "days": "天",
+      "hours": "时",
+      "minutes": "分",
+      "seconds": "秒",
+      "live": "开售中",
+      "ended": "已关闭"
+    },
+    "states": {
+      "loadingTitle": "正在加载最新票务信息",
+      "loadingDescription": "正在为您整理艺人页面、售票链接和开票时间。",
+      "emptyTitle": "暂无符合条件的演唱会",
+      "emptyDescription": "请尝试其他艺人、城市或时间段。我们仅显示官方链接。",
+      "errorTitle": "页面加载遇到问题",
+      "errorDescription": "请刷新页面或稍后重试。"
+    },
+    "localeSwitcher": {
+      "label": "语言"
+    },
+    "footer": {
+      "disclaimerTitle": "官方链接导航服务",
+      "disclaimerBody": "我们不直接出售票务。开票时间、价格及场馆政策随时可能变动，请在付款前务必核实官方售票渠道。",
+      "sellerLinks": "官方售票快捷入口",
+      "freshness": "每个演唱会详情页均显示最后核实时间。"
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "不再错过K-pop开票时刻",
+      "title": "查看预售条件、转换时区，在抢票前直达官方售票渠道。",
+      "subtitle": "以艺人为中心，帮助粉丝快速完成从发现到抢票准备的全流程。",
+      "searchPlaceholder": "搜索艺人、演唱会或城市"
+    },
+    "sections": {
+      "upcoming": "即将开票",
+      "featuredArtists": "热门艺人",
+      "monthConcerts": "本月K-pop演唱会",
+      "whyTitle": "为什么粉丝选择我们"
+    },
+    "why": {
+      "presaleTitle": "粉丝团预售信息清晰",
+      "presaleBody": "在抢票开始前了解会员资格要求和票务阶段。",
+      "timezoneTitle": "时区自动转换",
+      "timezoneBody": "同时显示来源时间和您的本地时间。",
+      "officialTitle": "仅限官方链接",
+      "officialBody": "从我们的详情页直接跳转至可信售票方或官方公告。"
+    }
+  },
+  "artists": {
+    "title": "快速找到艺人，关注您喜爱的团体。",
+    "subtitle": "按分类浏览，同时显示韩文和英文名，将下次开票信息集中在一个页面。",
+    "searchPlaceholder": "搜索韩文或英文艺人名",
+    "featuredLabel": "当前热门",
+    "trackedConcerts": "{count, plural, one {正在追踪 # 场演唱会} other {正在追踪 # 场演唱会}}"
+  },
+  "concerts": {
+    "title": "按票务紧急程度而非日期浏览演唱会。",
+    "subtitle": "结构化卡片让售票方、状态、场馆和开票时间一目了然。",
+    "listViewActive": "列表视图已激活",
+    "calendarSoon": "日历视图即将推出",
+    "ticketPhasesCount": "{count, plural, one {# 个票务阶段} other {# 个票务阶段}}",
+    "detail": {
+      "overview": "概览",
+      "ticketOpening": "开票信息",
+      "membership": "粉丝团 / 会员资格要求",
+      "prices": "价格",
+      "venueInfo": "场馆信息",
+      "importantNotes": "重要须知",
+      "officialSource": "官方来源",
+      "missingPrices": "官方售票方尚未公布价格详情。",
+      "missingPresale": "尚未发布粉丝团预售时间窗口。",
+      "externalUnavailable": "官方售票链接暂时无法访问。",
+      "tba": "待定",
+      "attendeeNameRequired": "入场时票务购买者姓名须与使用的证件一致。",
+      "attendeeNameNotListed": "目前未列明实名核验规则。",
+      "passportRequired": "取票或入场时可能需要护照或政府颁发的身份证件。",
+      "passportNotListed": "目前未列明护照要求。",
+      "onsitePickupOnly": "票务取票方式为现场取票专属。",
+      "onsitePickupNotListed": "未列明现场取票专属限制。",
+      "antiMacroRule": "批量或使用脚本购票可能被取消订单。",
+      "antiMacroNotListed": "尚未检测到防脚本购票警告。"
+    }
+  },
+  "alerts": {
+    "title": "我的提醒 / 我关注的艺人",
+    "subtitle": "在一个页面管理关注的艺人和提醒时间，MVP阶段以邮件为主要推送渠道。",
+    "remind24h": "提前24小时",
+    "remind1h": "提前1小时",
+    "remind10m": "提前10分钟",
+    "emailEnabled": "启用邮件提醒",
+    "pushSoon": "网页推送将在MVP后推出",
+    "panelTitle": "开票提醒",
+    "panelBody": "选择您希望在本次开票前收到提醒的时间。",
+    "success": "提醒已保存，我们将为您追踪此次开票。",
+    "duplicate": "该提醒设置已处于激活状态。",
+    "emailOn": "开启",
+    "emailOff": "关闭"
+  },
+  "auth": {
+    "signIn": "登录",
+    "signUp": "注册",
+    "hint": "登录并关注艺人，保持提醒设置同步。"
+  }
+}

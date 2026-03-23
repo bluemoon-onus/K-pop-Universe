@@ -2,6 +2,10 @@
   "common": {
     "brand": "K-pop Ticket Hub",
     "tagline": "공식 링크 기반 발견 및 알림",
+    "metadata": {
+      "title": "K-pop Ticket Hub",
+      "description": "공식 판매처 링크만 연결하는 글로벌 K-pop 공연 발견 및 티켓 오픈 알림 플랫폼입니다."
+    },
     "navigation": {
       "home": "홈",
       "artists": "아티스트",
@@ -97,9 +101,7 @@
       "errorDescription": "잠시 후 새로고침하거나 다시 시도해 주세요."
     },
     "localeSwitcher": {
-      "label": "언어",
-      "en": "English",
-      "ko": "한국어"
+      "label": "언어"
     },
     "footer": {
       "disclaimerTitle": "공식 링크 안내용 서비스",

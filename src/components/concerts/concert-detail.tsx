@@ -249,7 +249,7 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
             </a>
             <p className="text-sm text-muted-foreground">
               {tCommon("labels.lastUpdated")}:{" "}
-              {formatLastVerified(concert.lastVerifiedAt, concert.timezone)}
+              {formatLastVerified(concert.lastVerifiedAt, locale, concert.timezone)}
             </p>
           </div>
         </DetailSection>

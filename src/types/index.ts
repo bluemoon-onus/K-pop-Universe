@@ -39,7 +39,7 @@ export type TicketPhaseType =
   | "general_sale"
   | "additional_sale"
 
-export type AppLanguage = "ko" | "en"
+export type AppLanguage = "ko" | "en" | "ja" | "zh" | "th" | "id" | "es" | "pt" | "vi" | "tl" | "fr" | "de" | "ru" | "tr" | "ar" | "sv" | "pl" | "hi"
 
 export interface Artist {
   id: string

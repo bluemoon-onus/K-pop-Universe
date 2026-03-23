@@ -1,0 +1,190 @@
+{
+  "common": {
+    "brand": "K-pop Ticket Hub",
+    "tagline": "公式リンク中心の発見とアラート",
+    "metadata": {
+      "title": "K-pop Ticket Hub",
+      "description": "公式販売ページだけに案内する、グローバルK-pop公演発見とチケットオープン通知プラットフォームです。"
+    },
+    "navigation": {
+      "home": "ホーム",
+      "artists": "アーティスト",
+      "concerts": "公演",
+      "my": "マイページ"
+    },
+    "buttons": {
+      "browseConcerts": "公演を見る",
+      "followArtists": "アーティストをフォロー",
+      "viewDetails": "詳細を見る",
+      "goToOfficialSite": "公式販売ページへ",
+      "setAlert": "通知を設定",
+      "share": "共有",
+      "menu": "メニューを開く",
+      "close": "閉じる",
+      "follow": "フォロー",
+      "following": "フォロー中",
+      "signIn": "ログイン",
+      "retry": "再試行",
+      "saveAlerts": "通知設定を保存",
+      "search": "検索",
+      "seeAll": "すべて見る",
+      "browseArtists": "アーティストを見る"
+    },
+    "labels": {
+      "ticketOpens": "販売開始",
+      "officialOnly": "公式リンクのみ",
+      "lastUpdated": "最終更新",
+      "fanclubPresale": "ファンクラブ先行",
+      "generalSale": "一般販売",
+      "additionalSale": "追加販売",
+      "venue": "会場",
+      "city": "都市",
+      "country": "国",
+      "timezone": "タイムゾーン",
+      "priceRange": "価格帯",
+      "agePolicy": "年齢制限",
+      "officialSeller": "公式販売先",
+      "source": "公式ソース",
+      "yourTime": "あなたの時間",
+      "sourceTime": "原文の時間",
+      "dataFreshness": "データ更新性",
+      "openingSoon": "まもなく開始",
+      "thisWeek": "今週",
+      "later": "以降",
+      "calendarView": "カレンダービュー",
+      "listView": "リストビュー",
+      "status": "状態"
+    },
+    "status": {
+      "upcoming": "予定",
+      "open": "販売中",
+      "sold_out": "完売",
+      "ended": "終了",
+      "cancelled": "中止"
+    },
+    "sellers": {
+      "NOL": "NOL Ticket",
+      "INTERPARK": "Interpark",
+      "TICKETLINK": "Ticketlink",
+      "YES24": "YES24",
+      "WEVERSE": "Weverse",
+      "OTHER": "公式パートナー"
+    },
+    "categories": {
+      "boy_group": "ボーイズグループ",
+      "girl_group": "ガールズグループ",
+      "solo": "ソロ",
+      "band": "バンド",
+      "other": "その他"
+    },
+    "eventTypes": {
+      "concert": "コンサート",
+      "fan_meeting": "ファンミーティング",
+      "festival": "フェスティバル",
+      "musical": "ミュージカル",
+      "other": "その他"
+    },
+    "countdown": {
+      "days": "日",
+      "hours": "時間",
+      "minutes": "分",
+      "seconds": "秒",
+      "live": "販売中",
+      "ended": "終了"
+    },
+    "states": {
+      "loadingTitle": "最新のチケット情報を読み込み中",
+      "loadingDescription": "アーティストページ、公式リンク、販売時間を整理しています。",
+      "emptyTitle": "この表示条件に合う公演はまだありません",
+      "emptyDescription": "別のアーティスト、都市、または日程で探してみてください。表示するのは公式リンクのみです。",
+      "errorTitle": "ページの読み込み中に問題が発生しました",
+      "errorDescription": "少し待ってから再読み込みしてください。"
+    },
+    "localeSwitcher": {
+      "label": "言語"
+    },
+    "footer": {
+      "disclaimerTitle": "公式リンク案内専用サービス",
+      "disclaimerBody": "当サービスではチケットを販売しません。販売時間、価格、会場規定は変更される場合があるため、購入前に必ず公式販売ページをご確認ください。",
+      "sellerLinks": "公式販売先ショートカット",
+      "freshness": "すべての公演詳細ページに最終確認時刻を表示します。"
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "次のK-popチケットオープンを見逃さない",
+      "title": "先行条件を確認し、タイムゾーンを変換し、販売ラッシュの前に公式販売ページへ進みましょう。",
+      "subtitle": "発見から購入準備までをすばやくつなぐ、アーティスト中心のK-popチケットユーティリティです。",
+      "searchPlaceholder": "アーティスト、公演名、都市を検索"
+    },
+    "sections": {
+      "upcoming": "まもなく始まるチケットオープン",
+      "featuredArtists": "注目アーティスト",
+      "monthConcerts": "今月のK-pop公演",
+      "whyTitle": "このサービスが選ばれる理由"
+    },
+    "why": {
+      "presaleTitle": "ファンクラブ先行を明確に確認",
+      "presaleBody": "メンバーシップ条件や販売フェーズをオープン前に把握できます。",
+      "timezoneTitle": "タイムゾーン自動変換",
+      "timezoneBody": "原文の時間と自分の地域時間を並べて確認できます。",
+      "officialTitle": "公式リンクのみ案内",
+      "officialBody": "詳細ページからそのまま公式販売先や公式告知へ移動できます。"
+    }
+  },
+  "artists": {
+    "title": "アーティストをすばやく探して、大事なチームだけフォローしましょう。",
+    "subtitle": "韓国語名と英語名を一緒に見ながらカテゴリ別に探し、次のチケットオープンを一つの画面で管理できます。",
+    "searchPlaceholder": "韓国語または英語でアーティストを検索",
+    "featuredLabel": "注目中",
+    "trackedConcerts": "{count, plural, one {現在 # 件の公演を追跡中} other {現在 # 件の公演を追跡中}}"
+  },
+  "concerts": {
+    "title": "日付だけでなく、販売の緊急度で公演を見渡しましょう。",
+    "subtitle": "販売先、状態、会場、オープン時間を一目で把握できる構造化カードです。",
+    "listViewActive": "リストビュー有効",
+    "calendarSoon": "カレンダービューは次の段階で追加予定です",
+    "ticketPhasesCount": "{count, plural, one {# 件の販売フェーズ} other {# 件の販売フェーズ}}",
+    "detail": {
+      "overview": "概要",
+      "ticketOpening": "チケット販売",
+      "membership": "ファンクラブ / メンバーシップ条件",
+      "prices": "価格",
+      "venueInfo": "会場情報",
+      "importantNotes": "重要案内",
+      "officialSource": "公式ソース",
+      "missingPrices": "公式販売先の価格情報はまだ公開されていません。",
+      "missingPresale": "ファンクラブ先行日程はまだ公開されていません。",
+      "externalUnavailable": "公式販売リンクを一時的に取得できません。",
+      "tba": "後日案内",
+      "attendeeNameRequired": "会場ではチケット購入者名と身分証の一致が求められる場合があります。",
+      "attendeeNameNotListed": "実名確認ルールはまだ明記されていません。",
+      "passportRequired": "チケット受取時にパスポートまたは公的身分証が必要な場合があります。",
+      "passportNotListed": "パスポート要件はまだ明記されていません。",
+      "onsitePickupOnly": "チケット受取方法は会場受取限定と案内されています。",
+      "onsitePickupNotListed": "会場受取限定の案内はまだ確認されていません。",
+      "antiMacroRule": "マクロや不正購入と判断された場合、注文が取り消されることがあります。",
+      "antiMacroNotListed": "マクロ対策に関する案内はまだ確認されていません。"
+    }
+  },
+  "alerts": {
+    "title": "マイ通知 / マイアーティスト",
+    "subtitle": "フォロー中のアーティストと通知タイミングを一つの画面で管理します。MVPの通知チャネルはメールです。",
+    "remind24h": "24時間前",
+    "remind1h": "1時間前",
+    "remind10m": "10分前",
+    "emailEnabled": "メール通知を有効化",
+    "pushSoon": "WebプッシュはMVP以降に対応予定です",
+    "panelTitle": "チケットオープン通知",
+    "panelBody": "販売開始前に受け取りたい通知タイミングを選択してください。",
+    "success": "通知を保存しました。このオープンを継続して追跡します。",
+    "duplicate": "同じ通知設定がすでに有効です。",
+    "emailOn": "オン",
+    "emailOff": "オフ"
+  },
+  "auth": {
+    "signIn": "ログイン",
+    "signUp": "アカウント作成",
+    "hint": "ログインしてアーティストをフォローし、通知設定を同期しましょう。"
+  }
+}

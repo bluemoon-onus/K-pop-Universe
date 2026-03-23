@@ -2,6 +2,10 @@
   "common": {
     "brand": "K-pop Ticket Hub",
     "tagline": "Official-link discovery and alerts",
+    "metadata": {
+      "title": "K-pop Ticket Hub",
+      "description": "A global K-pop concert discovery and ticket-opening alert platform with official seller links only."
+    },
     "navigation": {
       "home": "Home",
       "artists": "Artists",
@@ -97,9 +101,7 @@
       "errorDescription": "Refresh the page or try again in a moment."
     },
     "localeSwitcher": {
-      "label": "Language",
-      "en": "English",
-      "ko": "Korean"
+      "label": "Language"
     },
     "footer": {
       "disclaimerTitle": "Official-link utility only",

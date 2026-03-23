@@ -1,4 +1,3 @@
-import { formatInTimeZone } from "date-fns-tz"
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import type { Artist, Concert, TicketPhase } from "@/types"
@@ -76,8 +75,20 @@ export function formatCurrencyLabel(
   }).format(amount)
 }
 
-export function formatLastVerified(date: Date, timeZone: string) {
-  return formatInTimeZone(date, timeZone, "yyyy.MM.dd HH:mm zzz")
+export function formatLastVerified(
+  date: Date,
+  locale: string,
+  timeZone: string,
+) {
+  return new Intl.DateTimeFormat(locale, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone,
+    timeZoneName: "short",
+  }).format(date)
 }
 
 export function formatConcertPriceRangeLabel(
