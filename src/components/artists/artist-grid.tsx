@@ -3,18 +3,18 @@ import type { Artist } from "@/types"
 
 export function ArtistGrid({
   artists,
-  followedArtistIds = [],
+  showConcertLinks = false,
 }: {
   artists: Artist[]
-  followedArtistIds?: string[]
+  showConcertLinks?: boolean
 }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 2xl:grid-cols-5">
       {artists.map((artist) => (
         <ArtistCard
           key={artist.id}
           artist={artist}
-          defaultFollowed={followedArtistIds.includes(artist.id)}
+          showConcertLink={showConcertLinks}
         />
       ))}
     </div>

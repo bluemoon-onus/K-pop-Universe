@@ -19,16 +19,21 @@
       "goToOfficialSite": "公式販売ページへ",
       "setAlert": "通知を設定",
       "share": "共有",
+      "copied": "リンクをコピーしました",
       "menu": "メニューを開く",
       "close": "閉じる",
       "follow": "フォロー",
       "following": "フォロー中",
       "signIn": "ログイン",
+      "signOut": "ログアウト",
       "retry": "再試行",
       "saveAlerts": "通知設定を保存",
       "search": "検索",
       "seeAll": "すべて見る",
-      "browseArtists": "アーティストを見る"
+      "browseArtists": "アーティストを見る",
+      "clearFilters": "フィルターを解除",
+      "previous": "前へ",
+      "next": "次へ"
     },
     "labels": {
       "ticketOpens": "販売開始",
@@ -53,6 +58,7 @@
       "later": "以降",
       "calendarView": "カレンダービュー",
       "listView": "リストビュー",
+      "date": "日付",
       "status": "状態"
     },
     "status": {
@@ -137,7 +143,11 @@
     "subtitle": "韓国語名と英語名を一緒に見ながらカテゴリ別に探し、次のチケットオープンを一つの画面で管理できます。",
     "searchPlaceholder": "韓国語または英語でアーティストを検索",
     "featuredLabel": "注目中",
-    "trackedConcerts": "{count, plural, one {現在 # 件の公演を追跡中} other {現在 # 件の公演を追跡中}}"
+    "trackedConcerts": "{count, plural, one {現在 # 件の公演を追跡中} other {現在 # 件の公演を追跡中}}",
+    "allCategories": "すべて",
+    "noResultsTitle": "条件に合うアーティストが見つかりません",
+    "noResultsDescription": "別の表記、別名、またはカテゴリで試してください。",
+    "viewConcerts": "公演を見る"
   },
   "concerts": {
     "title": "日付だけでなく、販売の緊急度で公演を見渡しましょう。",
@@ -145,6 +155,41 @@
     "listViewActive": "リストビュー有効",
     "calendarSoon": "カレンダービューは次の段階で追加予定です",
     "ticketPhasesCount": "{count, plural, one {# 件の販売フェーズ} other {# 件の販売フェーズ}}",
+    "filters": {
+      "searchPlaceholder": "公演、会場、アーティスト、都市を検索",
+      "artist": "アーティスト",
+      "city": "都市",
+      "country": "国",
+      "seller": "販売先",
+      "status": "状態",
+      "eventType": "イベント種別",
+      "sortBy": "並び順",
+      "allCities": "すべての都市",
+      "allCountries": "すべての国",
+      "allSellers": "すべての販売先",
+      "allStatuses": "すべての状態",
+      "allTypes": "すべてのイベント種別",
+      "dateRange": {
+        "all": "すべての日付",
+        "30d": "今後30日",
+        "60d": "今後60日"
+      }
+    },
+    "sort": {
+      "opening": "販売開始が近い順",
+      "date": "公演日順",
+      "updated": "更新が新しい順"
+    },
+    "states": {
+      "filteredTitle": "フィルター条件に合う公演がありません",
+      "filteredDescription": "フィルターを少し減らして再度確認してください。"
+    },
+    "calendar": {
+      "instructions": "日付を選ぶと、その日に予定されている公演を表示します。",
+      "selectedDate": "選択した日付",
+      "noConcertsTitle": "この日付に公演はありません",
+      "noConcertsDescription": "別の日付を選ぶか、フィルターを広げてください。"
+    },
     "detail": {
       "overview": "概要",
       "ticketOpening": "チケット販売",
@@ -164,12 +209,19 @@
       "onsitePickupOnly": "チケット受取方法は会場受取限定と案内されています。",
       "onsitePickupNotListed": "会場受取限定の案内はまだ確認されていません。",
       "antiMacroRule": "マクロや不正購入と判断された場合、注文が取り消されることがあります。",
-      "antiMacroNotListed": "マクロ対策に関する案内はまだ確認されていません。"
+      "antiMacroNotListed": "マクロ対策に関する案内はまだ確認されていません。",
+      "soldOutNotice": "この公演は現在完売です。追加在庫が出るかどうかは公式ソースをご確認ください。",
+      "cancelledNotice": "この公演は中止されました。最新情報は公式ソースをご確認ください。",
+      "loginAlertHint": "このパネルで通知を管理するにはログインしてください。"
     }
   },
   "alerts": {
     "title": "マイ通知 / マイアーティスト",
     "subtitle": "フォロー中のアーティストと通知タイミングを一つの画面で管理します。MVPの通知チャネルはメールです。",
+    "tabs": {
+      "artists": "マイアーティスト",
+      "alerts": "マイ通知"
+    },
     "remind24h": "24時間前",
     "remind1h": "1時間前",
     "remind10m": "10分前",
@@ -180,7 +232,19 @@
     "success": "通知を保存しました。このオープンを継続して追跡します。",
     "duplicate": "同じ通知設定がすでに有効です。",
     "emailOn": "オン",
-    "emailOff": "オフ"
+    "emailOff": "オフ",
+    "emptyArtistsTitle": "お気に入りのアーティストをフォローして始めましょう",
+    "emptyArtistsDescription": "アーティストをフォローすると、ここからすばやく管理できます。",
+    "emptyAlertsTitle": "保存された通知はまだありません",
+    "emptyAlertsDescription": "公演詳細ページから通知を設定すると、ここに追加されます。",
+    "settingsTitle": "設定",
+    "languageSetting": "言語",
+    "emailLabel": "メール",
+    "emailPlaceholder": "name@example.com",
+    "timezoneLabel": "タイムゾーン",
+    "loggedOutTitle": "通知とフォロー中のアーティストを管理するにはログインしてください",
+    "loggedOutDescription": "このMVPはローカルのデモセッションを使うため、保存したフォローや通知はこの端末に残ります。",
+    "signedInAs": "{email} でログイン中"
   },
   "auth": {
     "signIn": "ログイン",

@@ -1,17 +1,37 @@
+"use client"
+
+import { useDeferredValue, useState } from "react"
 import { useTranslations } from "next-intl"
 import { ArtistGrid } from "@/components/artists/artist-grid"
 import { ConcertList } from "@/components/concerts/concert-list"
 import { SearchBar } from "@/components/common/search-bar"
-import { Link } from "@/lib/i18n"
+import { StatePanel } from "@/components/common/state-panel"
+import { Link, useRouter } from "@/lib/i18n"
+import { artistMatchesQuery, concertMatchesQuery } from "@/lib/discovery"
 import { buttonVariants } from "@/components/ui/button"
 import { featuredArtists } from "@/data/mock-artists"
 import { getOpeningSoonConcerts, getThisMonthConcerts } from "@/data/mock-concerts"
 
 export default function HomePage() {
+  const router = useRouter()
   const tCommon = useTranslations("common")
   const tHome = useTranslations("home")
-  const openingSoonConcerts = getOpeningSoonConcerts()
+  const [query, setQuery] = useState("")
+  const deferredQuery = useDeferredValue(query)
+  const openingSoonConcerts = getOpeningSoonConcerts().filter((concert) =>
+    concertMatchesQuery(concert, deferredQuery),
+  )
   const monthConcerts = getThisMonthConcerts()
+    .filter((concert) => concertMatchesQuery(concert, deferredQuery))
+    .slice(0, 8)
+  const matchingArtists = featuredArtists.filter((artist) =>
+    artistMatchesQuery(artist, deferredQuery),
+  )
+  const hasSearch = deferredQuery.trim().length > 0
+  const hasResults =
+    matchingArtists.length > 0 ||
+    openingSoonConcerts.length > 0 ||
+    monthConcerts.length > 0
 
   return (
     <div className="mx-auto flex w-full max-w-7xl flex-col gap-16 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
@@ -30,6 +50,11 @@ export default function HomePage() {
             <SearchBar
               placeholder={tHome("hero.searchPlaceholder")}
               className="max-w-2xl"
+              value={query}
+              onValueChange={setQuery}
+              onSubmit={() =>
+                router.push(query.trim() ? `/concerts?query=${encodeURIComponent(query.trim())}` : "/concerts")
+              }
             />
             <div className="flex flex-wrap gap-3">
               <Link href="/concerts" className={buttonVariants({ variant: "default" })}>
@@ -67,6 +92,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      {hasSearch && !hasResults ? (
+        <StatePanel
+          title={tCommon("states.emptyTitle")}
+          description={tCommon("states.emptyDescription")}
+        />
+      ) : null}
+
       <ConcertList
         title={tHome("sections.upcoming")}
         description={tCommon("footer.freshness")}
@@ -87,12 +119,17 @@ export default function HomePage() {
             {tCommon("buttons.browseArtists")}
           </Link>
         </div>
-        <ArtistGrid artists={featuredArtists.slice(0, 3)} />
+        <ArtistGrid artists={matchingArtists.slice(0, 5)} showConcertLinks />
       </section>
 
       <ConcertList
         title={tHome("sections.monthConcerts")}
         concerts={monthConcerts}
+        action={
+          <Link href="/concerts" className={buttonVariants({ variant: "outline" })}>
+            {tCommon("buttons.seeAll")}
+          </Link>
+        }
       />
     </div>
   )

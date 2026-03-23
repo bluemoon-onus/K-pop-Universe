@@ -2,22 +2,22 @@
 
 import { HeartIcon } from "lucide-react"
 import { useTranslations } from "next-intl"
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { useUserPreferences } from "@/components/layout/user-preferences-provider"
 
 export function FollowButton({
-  defaultFollowed = false,
+  artistId,
 }: {
-  defaultFollowed?: boolean
+  artistId: string
 }) {
   const t = useTranslations("common.buttons")
-  const [followed, setFollowed] = useState(defaultFollowed)
+  const { isArtistFollowed, toggleArtistFollow } = useUserPreferences()
+  const followed = isArtistFollowed(artistId)
 
-  // TODO: Replace local toggle state with an authenticated follow mutation when auth is connected.
   return (
     <Button
       variant={followed ? "secondary" : "outline"}
-      onClick={() => setFollowed((current) => !current)}
+      onClick={() => toggleArtistFollow(artistId)}
     >
       <HeartIcon className="size-4" />
       {followed ? t("following") : t("follow")}

@@ -1,10 +1,14 @@
+"use client"
+
 import { AlertTriangleIcon, ExternalLinkIcon, TicketIcon } from "lucide-react"
 import { useLocale, useTranslations } from "next-intl"
+import { useState } from "react"
 import { AlertSettingPanel } from "@/components/common/alert-setting-panel"
 import { CountdownTimer } from "@/components/common/countdown-timer"
 import { FollowButton } from "@/components/common/follow-button"
 import { SellerBadge } from "@/components/common/seller-badge"
 import { StatusBadge } from "@/components/common/status-badge"
+import { useUserPreferences } from "@/components/layout/user-preferences-provider"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
@@ -14,7 +18,6 @@ import {
   getConcertPhases,
   getConcertPrices,
   getNextTicketPhase,
-  mockArtistFollows,
   mockNow,
 } from "@/data/mock-concerts"
 import {
@@ -30,13 +33,40 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
   const locale = useLocale()
   const tCommon = useTranslations("common")
   const tConcerts = useTranslations("concerts")
+  const { timeZone } = useUserPreferences()
   const artist = getConcertArtist(concert)
   const phases = getConcertPhases(concert.id)
   const notice = getConcertNotice(concert.id)
   const prices = getConcertPrices(concert.id)
   const nextPhase = getNextTicketPhase(concert.id, mockNow)
   const fallbackPhase = nextPhase ?? phases[phases.length - 1] ?? null
-  const isFollowed = mockArtistFollows.some((follow) => follow.artistId === concert.artistId)
+  const [shareState, setShareState] = useState<"idle" | "copied">("idle")
+  const officialLinkAvailable = concert.officialTicketUrl !== "#"
+  const officialCtaDisabled =
+    concert.status === "cancelled" ||
+    concert.status === "sold_out" ||
+    !officialLinkAvailable
+
+  async function handleShare() {
+    const shareUrl = typeof window === "undefined" ? "" : window.location.href
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: concert.title,
+          text: concert.title,
+          url: shareUrl,
+        })
+        return
+      }
+
+      await navigator.clipboard.writeText(shareUrl)
+      setShareState("copied")
+      window.setTimeout(() => setShareState("idle"), 2000)
+    } catch {
+      setShareState("idle")
+    }
+  }
 
   return (
     <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_360px]">
@@ -75,6 +105,45 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
                   : tCommon(`status.${concert.status}`)
               }
             />
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {officialCtaDisabled ? (
+              <button
+                type="button"
+                disabled
+                className={`${buttonVariants({ variant: "default" })} cursor-not-allowed opacity-60`}
+              >
+                {tCommon("buttons.goToOfficialSite")}
+              </button>
+            ) : (
+              <a
+                href={concert.officialTicketUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({ variant: "default" })}
+              >
+                {tCommon("buttons.goToOfficialSite")}
+              </a>
+            )}
+            <button
+              type="button"
+              className={buttonVariants({ variant: "outline" })}
+              onClick={() =>
+                document.getElementById(`alert-panel-${concert.id}`)?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                })
+              }
+            >
+              {tCommon("buttons.setAlert")}
+            </button>
+            <button
+              type="button"
+              className={buttonVariants({ variant: "outline" })}
+              onClick={() => void handleShare()}
+            >
+              {shareState === "copied" ? tCommon("buttons.copied") : tCommon("buttons.share")}
+            </button>
           </div>
         </section>
 
@@ -118,9 +187,16 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
                           ? tCommon("labels.generalSale")
                           : tCommon("labels.additionalSale")}
                     </p>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {formatDateTimeLabel(phase.openAt, locale, phase.timezone)}
-                    </p>
+                    <div className="mt-1 space-y-1 text-sm">
+                      <p className="text-muted-foreground">
+                        {tCommon("labels.sourceTime")}:{" "}
+                        {formatDateTimeLabel(phase.openAt, locale, phase.timezone)}
+                      </p>
+                      <p className="text-muted-foreground">
+                        {tCommon("labels.yourTime")}:{" "}
+                        {formatDateTimeLabel(phase.openAt, locale, timeZone)}
+                      </p>
+                    </div>
                   </div>
                   {phase.openAt > mockNow ? (
                     <CountdownTimer targetDate={phase.openAt} />
@@ -134,8 +210,8 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
           </div>
         </DetailSection>
 
-        <DetailSection title={tConcerts("detail.membership")}>
-          {phases.some((phase) => phase.type === "fanclub_presale") ? (
+        {phases.some((phase) => phase.type === "fanclub_presale") ? (
+          <DetailSection title={tConcerts("detail.membership")}>
             <div className="space-y-4">
               {phases
                 .filter((phase) => phase.type === "fanclub_presale")
@@ -148,12 +224,8 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
                   </div>
                 ))}
             </div>
-          ) : (
-            <p className="text-sm leading-7 text-muted-foreground">
-              {tConcerts("detail.missingPresale")}
-            </p>
-          )}
-        </DetailSection>
+          </DetailSection>
+        ) : null}
 
         <DetailSection title={tConcerts("detail.prices")}>
           {prices.length ? (
@@ -241,7 +313,7 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
             <a
               href={concert.sourceUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className={buttonVariants({ variant: "outline" })}
             >
               <ExternalLinkIcon className="size-4" />
@@ -268,28 +340,53 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
           </CardHeader>
           <CardContent className="space-y-4">
             {nextPhase ? <CountdownTimer targetDate={nextPhase.openAt} /> : null}
-            <a
-              href={concert.officialTicketUrl}
-              target="_blank"
-              rel="noreferrer"
-              className={`${buttonVariants({ variant: "default" })} w-full justify-center`}
-            >
-              {tCommon("buttons.goToOfficialSite")}
-            </a>
+            {officialCtaDisabled ? (
+              <button
+                type="button"
+                disabled
+                className={`${buttonVariants({ variant: "default" })} w-full cursor-not-allowed justify-center opacity-60`}
+              >
+                {tCommon("buttons.goToOfficialSite")}
+              </button>
+            ) : (
+              <a
+                href={concert.officialTicketUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${buttonVariants({ variant: "default" })} w-full justify-center`}
+              >
+                {tCommon("buttons.goToOfficialSite")}
+              </a>
+            )}
             <button
               type="button"
               className={`${buttonVariants({ variant: "outline" })} w-full justify-center`}
+              onClick={() => void handleShare()}
             >
-              <span>{tCommon("buttons.share")}</span>
+              <span>{shareState === "copied" ? tCommon("buttons.copied") : tCommon("buttons.share")}</span>
             </button>
+            {officialLinkAvailable ? null : (
+              <p className="text-sm text-muted-foreground">
+                {tConcerts("detail.externalUnavailable")}
+              </p>
+            )}
+            {(concert.status === "sold_out" || concert.status === "cancelled") && officialLinkAvailable ? (
+              <p className="text-sm text-muted-foreground">
+                {concert.status === "sold_out"
+                  ? tConcerts("detail.soldOutNotice")
+                  : tConcerts("detail.cancelledNotice")}
+              </p>
+            ) : null}
             <Separator />
             <div className="flex items-center justify-between">
               <p className="text-sm text-muted-foreground">{artist?.nameEn}</p>
-              <FollowButton defaultFollowed={isFollowed} />
+              <FollowButton artistId={concert.artistId} />
             </div>
           </CardContent>
         </Card>
-        <AlertSettingPanel concertName={concert.title} />
+        <div id={`alert-panel-${concert.id}`}>
+          <AlertSettingPanel concertId={concert.id} concertName={concert.title} />
+        </div>
       </aside>
     </div>
   )

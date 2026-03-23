@@ -19,16 +19,21 @@
       "goToOfficialSite": "Go to official ticket site",
       "setAlert": "Set alert",
       "share": "Share",
+      "copied": "Link copied",
       "menu": "Open menu",
       "close": "Close",
       "follow": "Follow",
       "following": "Following",
       "signIn": "Log in",
+      "signOut": "Log out",
       "retry": "Try again",
       "saveAlerts": "Save alert settings",
       "search": "Search",
       "seeAll": "See all",
-      "browseArtists": "Browse artists"
+      "browseArtists": "Browse artists",
+      "clearFilters": "Clear filters",
+      "previous": "Previous",
+      "next": "Next"
     },
     "labels": {
       "ticketOpens": "Ticket opens",
@@ -53,6 +58,7 @@
       "later": "Later",
       "calendarView": "Calendar view",
       "listView": "List view",
+      "date": "Date",
       "status": "Status"
     },
     "status": {
@@ -137,7 +143,11 @@
     "subtitle": "Browse by category, scan both Korean and English names, and keep your next ticket opening on one shortlist.",
     "searchPlaceholder": "Search artists in Korean or English",
     "featuredLabel": "Featured now",
-    "trackedConcerts": "{count, plural, one {# concert currently tracked} other {# concerts currently tracked}}"
+    "trackedConcerts": "{count, plural, one {# concert currently tracked} other {# concerts currently tracked}}",
+    "allCategories": "All",
+    "noResultsTitle": "No artists matched this search",
+    "noResultsDescription": "Try another spelling, alias, or category filter.",
+    "viewConcerts": "View concerts"
   },
   "concerts": {
     "title": "Scan concerts by ticket urgency, not just by date.",
@@ -145,6 +155,41 @@
     "listViewActive": "List view active",
     "calendarSoon": "Calendar view is planned next",
     "ticketPhasesCount": "{count, plural, one {# ticket phase} other {# ticket phases}}",
+    "filters": {
+      "searchPlaceholder": "Search concerts, venues, artists, or cities",
+      "artist": "Artists",
+      "city": "City",
+      "country": "Country",
+      "seller": "Seller",
+      "status": "Status",
+      "eventType": "Event type",
+      "sortBy": "Sort by",
+      "allCities": "All cities",
+      "allCountries": "All countries",
+      "allSellers": "All sellers",
+      "allStatuses": "All statuses",
+      "allTypes": "All event types",
+      "dateRange": {
+        "all": "All dates",
+        "30d": "Next 30 days",
+        "60d": "Next 60 days"
+      }
+    },
+    "sort": {
+      "opening": "Ticket opening soonest",
+      "date": "Concert date",
+      "updated": "Latest updated"
+    },
+    "states": {
+      "filteredTitle": "No concerts match your filters",
+      "filteredDescription": "Reset one or two filters to widen the results."
+    },
+    "calendar": {
+      "instructions": "Select a date to see concerts scheduled for that day.",
+      "selectedDate": "Selected date",
+      "noConcertsTitle": "No concerts on this date",
+      "noConcertsDescription": "Pick another day or widen your filters."
+    },
     "detail": {
       "overview": "Overview",
       "ticketOpening": "Ticket Opening",
@@ -164,12 +209,19 @@
       "onsitePickupOnly": "Ticket pickup is marked as on-site only.",
       "onsitePickupNotListed": "No on-site-only pickup restriction is listed.",
       "antiMacroRule": "Bulk or macro-style purchases may be cancelled.",
-      "antiMacroNotListed": "No anti-macro warning was detected yet."
+      "antiMacroNotListed": "No anti-macro warning was detected yet.",
+      "soldOutNotice": "This concert is sold out. Keep watching the official source for added inventory.",
+      "cancelledNotice": "This concert has been cancelled. Use the source link for the latest promoter notice.",
+      "loginAlertHint": "Log in to manage alert reminders from this panel."
     }
   },
   "alerts": {
     "title": "My Alerts / My Artists",
     "subtitle": "Keep followed artists and reminder timing in one place while email is the MVP delivery channel.",
+    "tabs": {
+      "artists": "My Artists",
+      "alerts": "My Alerts"
+    },
     "remind24h": "24 hours before",
     "remind1h": "1 hour before",
     "remind10m": "10 minutes before",
@@ -180,7 +232,19 @@
     "success": "Alert saved. We will watch this opening for you.",
     "duplicate": "This alert setup is already active.",
     "emailOn": "On",
-    "emailOff": "Off"
+    "emailOff": "Off",
+    "emptyArtistsTitle": "Follow your favorite artists to get started",
+    "emptyArtistsDescription": "Once you follow artists, they will appear here for quick access.",
+    "emptyAlertsTitle": "No alerts are saved yet",
+    "emptyAlertsDescription": "Set reminders from a concert detail page to build your alert list.",
+    "settingsTitle": "Settings",
+    "languageSetting": "Language",
+    "emailLabel": "Email",
+    "emailPlaceholder": "name@example.com",
+    "timezoneLabel": "Timezone",
+    "loggedOutTitle": "Sign in to manage your alerts and followed artists",
+    "loggedOutDescription": "This MVP uses a local demo session, so your saved follows and alerts stay on this device.",
+    "signedInAs": "Signed in as {email}"
   },
   "auth": {
     "signIn": "Log in",

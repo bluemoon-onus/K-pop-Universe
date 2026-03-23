@@ -1,4 +1,7 @@
+"use client"
+
 import { useTranslations } from "next-intl"
+import { Link } from "@/lib/i18n"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { FollowButton } from "@/components/common/follow-button"
 import { getConcertsByArtist } from "@/data/mock-concerts"
@@ -20,10 +23,10 @@ const gradientByArtist: Record<string, string> = {
 
 export function ArtistCard({
   artist,
-  defaultFollowed = false,
+  showConcertLink = false,
 }: {
   artist: Artist
-  defaultFollowed?: boolean
+  showConcertLink?: boolean
 }) {
   const tArtists = useTranslations("artists")
   const tCommon = useTranslations("common")
@@ -32,22 +35,24 @@ export function ArtistCard({
   return (
     <Card className="glass-panel border border-border/60">
       <CardHeader className="gap-4">
-        <div
-          className={`flex h-28 w-full items-end rounded-[1.75rem] bg-gradient-to-br ${gradientByArtist[artist.id] ?? "from-accent/50 to-primary/40"} p-5`}
-        >
-          <div className="flex size-14 items-center justify-center rounded-2xl bg-black/20 font-heading text-xl font-bold text-white">
-            {getArtistInitials(artist)}
+        <Link href={`/concerts?artist=${artist.id}`} className="space-y-4">
+          <div
+            className={`flex h-28 w-full items-end rounded-[1.75rem] bg-gradient-to-br ${gradientByArtist[artist.id] ?? "from-accent/50 to-primary/40"} p-5 transition duration-200 hover:scale-[1.01]`}
+          >
+            <div className="flex size-14 items-center justify-center rounded-2xl bg-black/20 font-heading text-xl font-bold text-white">
+              {getArtistInitials(artist)}
+            </div>
           </div>
-        </div>
-        <div className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.2em] text-accent">
-            {artist.isFeatured ? tArtists("featuredLabel") : tCommon(`categories.${artist.category}`)}
-          </p>
-          <CardTitle className="text-xl">{getArtistDisplayName(artist)}</CardTitle>
-          <p className="text-sm leading-7 text-muted-foreground">
-            {tArtists("trackedConcerts", { count: concerts.length })}
-          </p>
-        </div>
+          <div className="space-y-2">
+            <p className="text-xs uppercase tracking-[0.2em] text-accent">
+              {artist.isFeatured ? tArtists("featuredLabel") : tCommon(`categories.${artist.category}`)}
+            </p>
+            <CardTitle className="text-xl">{getArtistDisplayName(artist)}</CardTitle>
+            <p className="text-sm leading-7 text-muted-foreground">
+              {tArtists("trackedConcerts", { count: concerts.length })}
+            </p>
+          </div>
+        </Link>
       </CardHeader>
       <CardContent>
         <div className="flex flex-wrap gap-2">
@@ -62,10 +67,16 @@ export function ArtistCard({
         </div>
       </CardContent>
       <CardFooter className="justify-between gap-3">
-        <span className="text-sm text-muted-foreground">
-          {tCommon(`categories.${artist.category}`)}
-        </span>
-        <FollowButton defaultFollowed={defaultFollowed} />
+        {showConcertLink ? (
+          <Link href={`/concerts?artist=${artist.id}`} className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
+            {tArtists("viewConcerts")}
+          </Link>
+        ) : (
+          <span className="text-sm text-muted-foreground">
+            {tCommon(`categories.${artist.category}`)}
+          </span>
+        )}
+        <FollowButton artistId={artist.id} />
       </CardFooter>
     </Card>
   )

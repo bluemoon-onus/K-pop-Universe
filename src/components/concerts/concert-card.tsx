@@ -1,4 +1,7 @@
+"use client"
+
 import { useLocale, useTranslations } from "next-intl"
+import { useUserPreferences } from "@/components/layout/user-preferences-provider"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { CountdownTimer } from "@/components/common/countdown-timer"
@@ -25,6 +28,7 @@ export function ConcertCard({ concert }: { concert: Concert }) {
   const locale = useLocale()
   const t = useTranslations("common")
   const tConcerts = useTranslations("concerts")
+  const { timeZone } = useUserPreferences()
   const artist = getConcertArtist(concert)
   const phases = getConcertPhases(concert.id)
   const nextPhase = getNextTicketPhase(concert.id, mockNow)
@@ -45,9 +49,14 @@ export function ConcertCard({ concert }: { concert: Concert }) {
           ) : null}
         </div>
         <div className="space-y-2">
-          <p className="text-sm font-medium text-accent">
-            {artist ? getArtistDisplayName(artist) : concert.city}
-          </p>
+          <div className="flex items-center gap-3">
+            <div className="flex size-11 items-center justify-center rounded-2xl bg-white/10 font-heading text-sm font-semibold text-white">
+              {artist ? artist.nameEn.slice(0, 2).toUpperCase() : concert.city.slice(0, 2).toUpperCase()}
+            </div>
+            <p className="text-sm font-medium text-accent">
+              {artist ? getArtistDisplayName(artist) : concert.city}
+            </p>
+          </div>
           <CardTitle className="text-xl">{concert.title}</CardTitle>
           <p className="text-sm leading-7 text-muted-foreground">
             {concert.venueName} · {concert.city}
@@ -59,10 +68,35 @@ export function ConcertCard({ concert }: { concert: Concert }) {
           <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
             {t("labels.ticketOpens")}
           </p>
+          {fallbackPhase ? (
+            <div className="space-y-1 text-sm">
+              <p className="text-foreground">
+                {t("labels.sourceTime")}:{" "}
+                {formatDateTimeLabel(fallbackPhase.openAt, locale, fallbackPhase.timezone)}
+              </p>
+              <p className="text-muted-foreground">
+                {t("labels.yourTime")}:{" "}
+                {formatDateTimeLabel(fallbackPhase.openAt, locale, timeZone)}
+              </p>
+            </div>
+          ) : (
+            <p className="text-sm text-foreground">{t(`status.${concert.status}`)}</p>
+          )}
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+            {t("labels.date")}
+          </p>
           <p className="text-sm text-foreground">
-            {fallbackPhase
-              ? formatDateTimeLabel(fallbackPhase.openAt, locale, fallbackPhase.timezone)
-              : t(`status.${concert.status}`)}
+            {formatConcertDateRange(concert, locale)}
+          </p>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+            {t("labels.venue")}
+          </p>
+          <p className="text-sm text-foreground">
+            {concert.venueName}
           </p>
         </div>
         <div className="space-y-1">
@@ -73,26 +107,12 @@ export function ConcertCard({ concert }: { concert: Concert }) {
             {priceRange ?? tConcerts("detail.missingPrices")}
           </p>
         </div>
-        <div className="space-y-1">
-          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-            {t("labels.venue")}
-          </p>
-          <p className="text-sm text-foreground">
-            {formatConcertDateRange(concert, locale)}
-          </p>
-        </div>
-        <div className="space-y-1">
-          <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-            {t("labels.status")}
-          </p>
-          <div className="flex items-center gap-2">
-            <StatusBadge status={concert.status} />
-            {nextPhase ? <CountdownTimer targetDate={nextPhase.openAt} /> : null}
-          </div>
-        </div>
       </CardContent>
       <CardFooter className="justify-between gap-3">
-        <div className="text-sm text-muted-foreground">{tConcerts("ticketPhasesCount", { count: phases.length })}</div>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <StatusBadge status={concert.status} />
+          {nextPhase ? <CountdownTimer targetDate={nextPhase.openAt} /> : null}
+        </div>
         <Link
           href={`/concerts/${concert.id}`}
           className={buttonVariants({ variant: "default" })}
