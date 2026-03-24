@@ -44,11 +44,8 @@ export default function HomePage() {
             fill
             priority
             sizes="(min-width: 1280px) 1200px, 100vw"
-            className="scale-[1.02] object-cover object-center opacity-38 saturate-[1.08]"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,color-mix(in_oklch,var(--card)_65%,transparent),transparent_34%),radial-gradient(circle_at_85%_18%,color-mix(in_oklch,var(--accent)_18%,transparent),transparent_26%)]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/94 via-background/86 to-background/80 dark:from-background/82 dark:via-background/74 dark:to-background/62" />
-          <div className="surface-grid absolute inset-0 opacity-35" />
         </div>
         <div className="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
           <div className="space-y-6">
