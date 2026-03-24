@@ -1,7 +1,7 @@
 {
   "common": {
     "brand": "K-pop Ticket Hub",
-    "tagline": "Official-link discovery and alerts",
+    "tagline": "K-pop concert discovery with official links only",
     "metadata": {
       "title": "K-pop Ticket Hub",
       "description": "A global K-pop concert discovery and ticket-opening alert platform with official seller links only."
@@ -103,8 +103,8 @@
     "states": {
       "loadingTitle": "Loading the latest ticket signals",
       "loadingDescription": "We are lining up artist pages, seller links, and opening windows for you.",
-      "emptyTitle": "No concerts matched this view yet",
-      "emptyDescription": "Try another artist, city, or timing window. We only surface official links.",
+      "emptyTitle": "No concerts matched your search",
+      "emptyDescription": "Try a different artist, city, or date range — we only show official links.",
       "errorTitle": "Something interrupted the page build",
       "errorDescription": "Refresh the page or try again in a moment."
     },
@@ -134,24 +134,24 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Never miss K-pop ticket openings again",
-      "title": "Track presales, convert time zones, and move to the official seller before the rush starts.",
-      "subtitle": "Artist-first discovery for fans who want a fast, structured path from discovery to checkout prep.",
+      "eyebrow": "Never miss a K-pop ticket opening again",
+      "title": "Check presales, convert time zones, and reach the official seller before queues open.",
+      "subtitle": "Artist-first K-pop concert discovery — from finding the show to being ready to buy.",
       "searchPlaceholder": "Search artist, concert, or city"
     },
     "sections": {
       "upcoming": "Upcoming Ticket Opens",
       "featuredArtists": "Featured Artists",
       "monthConcerts": "This Month's K-pop Concerts",
-      "whyTitle": "Why fans use this service"
+      "whyTitle": "Why fans use this"
     },
     "why": {
       "presaleTitle": "Fanclub presale clarity",
       "presaleBody": "See membership requirements and ticket phases before the queue opens.",
       "timezoneTitle": "Timezone conversion",
-      "timezoneBody": "View source time and your local time side by side.",
+      "timezoneBody": "View source time and your local time side by side — no mental math needed.",
       "officialTitle": "Official links only",
-      "officialBody": "Move from our detail page straight to the trusted seller or promoter source."
+      "officialBody": "Jump straight from our detail page to the official seller or promoter."
     }
   },
   "artists": {

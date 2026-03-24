@@ -1,7 +1,7 @@
 {
   "common": {
     "brand": "K-pop Ticket Hub",
-    "tagline": "공식 링크 기반 발견 및 알림",
+    "tagline": "공식 링크로만 연결되는 K-pop 공연 알리미",
     "metadata": {
       "title": "K-pop Ticket Hub",
       "description": "공식 판매처 링크만 연결하는 글로벌 K-pop 공연 발견 및 티켓 오픈 알림 플랫폼입니다."
@@ -103,8 +103,8 @@
     "states": {
       "loadingTitle": "최신 예매 신호를 불러오는 중",
       "loadingDescription": "아티스트 페이지, 판매처 링크, 오픈 일정을 정리하고 있습니다.",
-      "emptyTitle": "이 화면에 맞는 공연이 아직 없습니다",
-      "emptyDescription": "다른 아티스트, 도시, 일정 구간으로 다시 찾아보세요. 우리는 공식 링크만 보여줍니다.",
+      "emptyTitle": "검색 결과에 해당하는 공연이 없어요",
+      "emptyDescription": "다른 아티스트, 도시, 날짜로 다시 검색해 보세요. 공식 링크만 제공합니다.",
       "errorTitle": "페이지를 구성하는 중 문제가 발생했습니다",
       "errorDescription": "잠시 후 새로고침하거나 다시 시도해 주세요."
     },
@@ -129,14 +129,14 @@
       "disclaimerTitle": "공식 링크 안내용 서비스",
       "disclaimerBody": "우리는 티켓을 직접 판매하지 않습니다. 예매 시간, 가격, 입장 규정은 언제든 바뀔 수 있으므로 결제 전 반드시 공식 판매처를 다시 확인해 주세요.",
       "sellerLinks": "공식 판매처 바로가기",
-      "freshness": "모든 공연 상세 페이지에는 마지막 검증 시간이 표시됩니다."
+      "freshness": "각 공연 상세 페이지에서 마지막 확인 시간을 볼 수 있어요."
     }
   },
   "home": {
     "hero": {
-      "eyebrow": "다음 K-pop 티켓 오픈을 놓치지 마세요",
-      "title": "선예매 조건을 확인하고, 시간대를 변환하고, 오픈 전에 공식 판매처로 바로 이동하세요.",
-      "subtitle": "공연 발견부터 예매 준비까지 빠르게 이어지는 아티스트 중심 K-pop 티켓 유틸리티입니다.",
+      "eyebrow": "K-pop 티켓 오픈, 이제 놓치지 마세요",
+      "title": "선예매 조건 확인하고, 내 시간으로 변환해서, 공식 판매처로 바로 가세요.",
+      "subtitle": "아티스트별 공연을 한눈에 찾고, 티켓 오픈 준비까지 한 번에.",
       "searchPlaceholder": "아티스트, 공연명, 도시 검색"
     },
     "sections": {
@@ -146,12 +146,12 @@
       "whyTitle": "왜 이 서비스를 쓰나요"
     },
     "why": {
-      "presaleTitle": "팬클럽 선예매 조건 확인",
-      "presaleBody": "멤버십 인증이나 선예매 구간을 오픈 전에 미리 파악할 수 있습니다.",
+      "presaleTitle": "팬클럽 선예매 조건, 미리 확인",
+      "presaleBody": "멤버십 인증 조건과 선예매 일정을 오픈 전에 확인하세요.",
       "timezoneTitle": "시간대 자동 변환",
-      "timezoneBody": "원본 시간과 내 지역 시간을 함께 보여줘서 해외 팬도 헷갈리지 않습니다.",
+      "timezoneBody": "원본 시간과 내 현지 시간을 나란히 표시해 해외 팬도 한눈에 알 수 있어요.",
       "officialTitle": "공식 링크만 연결",
-      "officialBody": "상세 페이지에서 바로 공식 판매처나 공식 공지로 이동합니다."
+      "officialBody": "공연 상세 페이지에서 공식 판매처나 공식 공지로 바로 연결됩니다."
     }
   },
   "artists": {

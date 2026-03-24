@@ -1,7 +1,7 @@
 {
   "common": {
     "brand": "K-pop Ticket Hub",
-    "tagline": "Descubrimiento y alertas con enlaces oficiales",
+    "tagline": "Conciertos K-pop, solo con enlaces oficiales",
     "metadata": {
       "title": "K-pop Ticket Hub",
       "description": "Plataforma global de descubrimiento de conciertos K-pop y alertas de apertura de venta de entradas, solo con enlaces oficiales."
@@ -103,7 +103,7 @@
     "states": {
       "loadingTitle": "Cargando las últimas señales de venta",
       "loadingDescription": "Preparando páginas de artistas, enlaces y ventanas de apertura.",
-      "emptyTitle": "No hay conciertos para esta vista",
+      "emptyTitle": "Ningún concierto coincide con tu búsqueda",
       "emptyDescription": "Prueba con otro artista, ciudad o rango de fechas. Solo mostramos enlaces oficiales.",
       "errorTitle": "Algo interrumpió la carga de la página",
       "errorDescription": "Recarga la página o inténtalo en un momento."
@@ -134,24 +134,24 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "No te pierdas nunca más una apertura de venta K-pop",
-      "title": "Consulta preventas, convierte zonas horarias y accede al vendedor oficial antes de que empiece la cola.",
-      "subtitle": "Descubrimiento centrado en artistas para fans que quieren ir directo desde el descubrimiento a la compra.",
+      "eyebrow": "No te pierdas ninguna apertura de venta K-pop",
+      "title": "Consulta preventas, convierte zonas horarias y llega al vendedor oficial antes de que empiece la cola.",
+      "subtitle": "Encuentra conciertos, revisa las fechas de preventa y llega al vendedor oficial antes que nadie.",
       "searchPlaceholder": "Buscar artista, concierto o ciudad"
     },
     "sections": {
       "upcoming": "Próximas aperturas de venta",
       "featuredArtists": "Artistas destacados",
       "monthConcerts": "Conciertos K-pop este mes",
-      "whyTitle": "Por qué los fans usan este servicio"
+      "whyTitle": "Por qué los fans nos eligen"
     },
     "why": {
-      "presaleTitle": "Claridad en la preventa de fanclub",
+      "presaleTitle": "Preventa de fanclub, sin sorpresas",
       "presaleBody": "Consulta los requisitos de membresía y las fases de venta antes de que abra la cola.",
       "timezoneTitle": "Conversión de zona horaria",
-      "timezoneBody": "Ve la hora de origen y tu hora local en paralelo.",
+      "timezoneBody": "Ve la hora de origen y tu hora local en paralelo, sin hacer cálculos.",
       "officialTitle": "Solo enlaces oficiales",
-      "officialBody": "Ve directo desde nuestra página de detalle al vendedor o promotor oficial."
+      "officialBody": "Desde nuestra página de detalle, ve directo al vendedor o promotor oficial."
     }
   },
   "artists": {

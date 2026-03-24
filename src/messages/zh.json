@@ -1,7 +1,7 @@
 {
   "common": {
     "brand": "K-pop Ticket Hub",
-    "tagline": "官方链接发现与提醒",
+    "tagline": "发现演唱会，开票不错过",
     "metadata": {
       "title": "K-pop Ticket Hub",
       "description": "全球K-pop演唱会发现与票务开售提醒平台，仅提供官方售票链接。"
@@ -98,7 +98,7 @@
       "loadingTitle": "正在加载最新票务信息",
       "loadingDescription": "正在为您整理艺人页面、售票链接和开票时间。",
       "emptyTitle": "暂无符合条件的演唱会",
-      "emptyDescription": "请尝试其他艺人、城市或时间段。我们仅显示官方链接。",
+      "emptyDescription": "换个艺人、城市或时间段试试，我们只展示官方链接。",
       "errorTitle": "页面加载遇到问题",
       "errorDescription": "请刷新页面或稍后重试。"
     },
@@ -116,7 +116,7 @@
     "hero": {
       "eyebrow": "不再错过K-pop开票时刻",
       "title": "查看预售条件、转换时区，在抢票前直达官方售票渠道。",
-      "subtitle": "以艺人为中心，帮助粉丝快速完成从发现到抢票准备的全流程。",
+      "subtitle": "以艺人为核心，从找到演唱会到做好抢票准备，一步到位。",
       "searchPlaceholder": "搜索艺人、演唱会或城市"
     },
     "sections": {
@@ -126,12 +126,12 @@
       "whyTitle": "为什么粉丝选择我们"
     },
     "why": {
-      "presaleTitle": "粉丝团预售信息清晰",
-      "presaleBody": "在抢票开始前了解会员资格要求和票务阶段。",
+      "presaleTitle": "粉丝团预售一目了然",
+      "presaleBody": "开抢前掌握会员资格要求和购票流程。",
       "timezoneTitle": "时区自动转换",
-      "timezoneBody": "同时显示来源时间和您的本地时间。",
+      "timezoneBody": "同步显示原始时间与你的本地时间，换算不费力。",
       "officialTitle": "仅限官方链接",
-      "officialBody": "从我们的详情页直接跳转至可信售票方或官方公告。"
+      "officialBody": "从详情页直接跳转至可信售票方或官方公告。"
     }
   },
   "artists": {
