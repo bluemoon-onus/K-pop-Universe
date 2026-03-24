@@ -49,13 +49,13 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
           <div className="space-y-6">
-            <p className="font-heading text-sm uppercase tracking-[0.22em] text-accent">
+            <p className="hero-legibility-soft font-heading text-sm uppercase tracking-[0.22em] text-accent">
               {tHome("hero.eyebrow")}
             </p>
-            <h1 className="max-w-4xl font-heading text-4xl font-semibold leading-tight text-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="hero-legibility max-w-4xl font-heading text-4xl font-semibold leading-tight text-foreground sm:text-5xl lg:text-6xl">
               {tHome("hero.title")}
             </h1>
-            <p className="max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+            <p className="hero-legibility-soft-subtle max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
               {tHome("hero.subtitle")}
             </p>
             <SearchBar
