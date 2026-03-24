@@ -103,6 +103,7 @@ export default function HomePage() {
         title={tHome("sections.upcoming")}
         description={tCommon("footer.freshness")}
         concerts={openingSoonConcerts}
+        cardVariant="spotlight"
       />
 
       <section className="space-y-5">

@@ -15,6 +15,7 @@ export function ConcertList({
   action,
   emptyTitle,
   emptyDescription,
+  cardVariant = "default",
 }: {
   title: string
   description?: string
@@ -23,6 +24,7 @@ export function ConcertList({
   action?: React.ReactNode
   emptyTitle?: string
   emptyDescription?: string
+  cardVariant?: "default" | "spotlight"
 }) {
   const t = useTranslations("common.states")
 
@@ -71,7 +73,7 @@ export function ConcertList({
       ) : concerts.length ? (
         <div className="grid gap-4 lg:grid-cols-2">
           {concerts.map((concert) => (
-            <ConcertCard key={concert.id} concert={concert} />
+            <ConcertCard key={concert.id} concert={concert} variant={cardVariant} />
           ))}
         </div>
       ) : (

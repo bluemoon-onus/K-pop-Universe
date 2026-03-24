@@ -1,25 +1,18 @@
 "use client"
 
+import Image from "next/image"
 import { useTranslations } from "next-intl"
 import { Link } from "@/lib/i18n"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { FollowButton } from "@/components/common/follow-button"
 import { getConcertsByArtist } from "@/data/mock-concerts"
-import { getArtistDisplayName, getArtistInitials } from "@/lib/utils"
+import {
+  artistGradientById,
+  artistLandscapeFocusById,
+  hasArtistImage,
+} from "@/lib/artist-visuals"
+import { cn, getArtistDisplayName, getArtistInitials } from "@/lib/utils"
 import type { Artist } from "@/types"
-
-const gradientByArtist: Record<string, string> = {
-  bts: "from-chart-5/70 via-primary/25 to-chart-2/25",
-  seventeen: "from-primary/70 via-accent/20 to-chart-4/25",
-  aespa: "from-accent/60 via-chart-5/25 to-primary/20",
-  blackpink: "from-primary/60 via-chart-5/30 to-accent/20",
-  twice: "from-chart-4/60 via-primary/25 to-accent/25",
-  straykids: "from-chart-3/60 via-accent/25 to-primary/20",
-  gidle: "from-chart-5/60 via-primary/25 to-accent/20",
-  ive: "from-primary/60 via-chart-4/20 to-accent/15",
-  newjeans: "from-accent/55 via-chart-2/20 to-chart-4/20",
-  lesserafim: "from-chart-5/60 via-primary/25 to-accent/20"
-}
 
 export function ArtistCard({
   artist,
@@ -31,16 +24,45 @@ export function ArtistCard({
   const tArtists = useTranslations("artists")
   const tCommon = useTranslations("common")
   const concerts = getConcertsByArtist(artist.id)
+  const hasPhoto = hasArtistImage(artist)
+  const gradient = artistGradientById[artist.id] ?? "from-accent/50 to-primary/40"
+  const imageFocusClass = artistLandscapeFocusById[artist.id] ?? "object-center"
 
   return (
     <Card className="glass-panel card-lift border border-border/60">
       <CardHeader className="gap-4">
         <Link href={`/concerts?artist=${artist.id}`} className="space-y-4">
           <div
-            className={`flex h-28 w-full items-end rounded-[1.75rem] bg-gradient-to-br ${gradientByArtist[artist.id] ?? "from-accent/50 to-primary/40"} p-5 transition duration-300 group-hover/card:scale-[1.02]`}
+            className={cn(
+              "relative h-36 w-full overflow-hidden rounded-[1.75rem] border border-border/70 bg-gradient-to-br p-5 transition duration-300 group-hover/card:scale-[1.02]",
+              gradient,
+            )}
           >
-            <div className="flex size-14 items-center justify-center rounded-2xl bg-black/20 font-heading text-xl font-bold text-white shadow-lg shadow-black/10 transition duration-300 group-hover/card:-translate-y-1">
-              {getArtistInitials(artist)}
+            {hasPhoto ? (
+              <>
+                <Image
+                  src={artist.imageUrl}
+                  alt={`${artist.nameEn} group photo`}
+                  fill
+                  sizes="(min-width: 1280px) 240px, (min-width: 768px) 33vw, 100vw"
+                  className={cn(
+                    "object-cover transition duration-500 group-hover/card:scale-[1.04]",
+                    imageFocusClass,
+                  )}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/28 to-white/5 dark:from-background/90 dark:via-background/38 dark:to-transparent" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,color-mix(in_oklch,var(--card)_65%,transparent),transparent_42%),linear-gradient(145deg,color-mix(in_oklch,var(--foreground)_10%,transparent),transparent_56%)]" />
+              </>
+            ) : null}
+            <div className="relative flex w-full items-end justify-between gap-4">
+              <span className="rounded-full border border-white/16 bg-black/18 px-3 py-1 text-[0.68rem] uppercase tracking-[0.18em] text-white/88 backdrop-blur-md">
+                {artist.isFeatured ? tArtists("featuredLabel") : tCommon(`categories.${artist.category}`)}
+              </span>
+              {!hasPhoto ? (
+                <div className="flex size-14 items-center justify-center rounded-2xl bg-black/20 font-heading text-xl font-bold text-white shadow-lg shadow-black/10 transition duration-300 group-hover/card:-translate-y-1">
+                  {getArtistInitials(artist)}
+                </div>
+              ) : null}
             </div>
           </div>
           <div className="space-y-2">
