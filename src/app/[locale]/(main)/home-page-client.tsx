@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useDeferredValue, useState } from "react"
 import { useTranslations } from "next-intl"
 import { ArtistGrid } from "@/components/artists/artist-grid"
@@ -35,8 +36,21 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto flex w-full max-w-7xl flex-col gap-16 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
-      <section className="surface-grid glass-panel overflow-hidden rounded-[2rem] border border-border/60 px-6 py-10 sm:px-10 sm:py-14">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
+      <section className="glass-panel relative overflow-hidden rounded-[2rem] border border-border/60 px-6 py-10 sm:px-10 sm:py-14">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/main-background.jpg"
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 1280px) 1200px, 100vw"
+            className="scale-[1.02] object-cover object-center opacity-38 saturate-[1.08]"
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,color-mix(in_oklch,var(--card)_65%,transparent),transparent_34%),radial-gradient(circle_at_85%_18%,color-mix(in_oklch,var(--accent)_18%,transparent),transparent_26%)]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/94 via-background/86 to-background/80 dark:from-background/82 dark:via-background/74 dark:to-background/62" />
+          <div className="surface-grid absolute inset-0 opacity-35" />
+        </div>
+        <div className="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
           <div className="space-y-6">
             <p className="font-heading text-sm uppercase tracking-[0.22em] text-accent">
               {tHome("hero.eyebrow")}
@@ -82,7 +96,7 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-[1.75rem] border border-border/60 bg-foreground/[0.04] p-5"
+                className="rounded-[1.75rem] border border-border/60 bg-background/58 p-5 shadow-[0_18px_45px_-32px_color-mix(in_oklch,var(--foreground)_20%,transparent)] backdrop-blur-md"
               >
                 <p className="font-heading text-lg font-semibold text-foreground">{item.title}</p>
                 <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.body}</p>
