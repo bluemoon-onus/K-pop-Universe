@@ -55,6 +55,46 @@
     "Space Grotesk", "Avenir Next Condensed", "Pretendard", "Noto Sans KR", sans-serif;
   --font-mono-stack:
     "JetBrains Mono", "SFMono-Regular", "SF Mono", ui-monospace, monospace;
+  --background: oklch(0.98 0.01 95);
+  --foreground: oklch(0.26 0.03 255);
+  --card: oklch(1 0 0 / 88%);
+  --card-foreground: oklch(0.24 0.03 255);
+  --popover: oklch(1 0 0 / 95%);
+  --popover-foreground: oklch(0.24 0.03 255);
+  --primary: oklch(0.73 0.16 43);
+  --primary-foreground: oklch(0.15 0.02 255);
+  --secondary: oklch(0.93 0.02 246);
+  --secondary-foreground: oklch(0.28 0.03 255);
+  --muted: oklch(0.95 0.015 240);
+  --muted-foreground: oklch(0.52 0.02 250);
+  --accent: oklch(0.69 0.12 202);
+  --accent-foreground: oklch(0.13 0.02 255);
+  --destructive: oklch(0.63 0.19 25);
+  --border: oklch(0.79 0.018 248 / 75%);
+  --input: oklch(0.95 0.015 245);
+  --ring: oklch(0.69 0.12 202 / 45%);
+  --chart-1: oklch(0.73 0.16 43);
+  --chart-2: oklch(0.69 0.12 202);
+  --chart-3: oklch(0.7 0.11 155);
+  --chart-4: oklch(0.8 0.11 85);
+  --chart-5: oklch(0.68 0.12 315);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.98 0.008 240);
+  --sidebar-foreground: oklch(0.24 0.03 255);
+  --sidebar-primary: oklch(0.73 0.16 43);
+  --sidebar-primary-foreground: oklch(0.15 0.02 255);
+  --sidebar-accent: oklch(0.93 0.02 246);
+  --sidebar-accent-foreground: oklch(0.24 0.03 255);
+  --sidebar-border: oklch(0.79 0.018 248 / 75%);
+  --sidebar-ring: oklch(0.69 0.12 202 / 45%);
+  --page-glow-1: oklch(0.73 0.16 43 / 12%);
+  --page-glow-2: oklch(0.69 0.12 202 / 12%);
+  --page-backdrop-top: oklch(0.99 0.01 100);
+  --page-backdrop-bottom: oklch(0.94 0.015 245);
+  --grid-line: oklch(0.2 0.01 250 / 0.05);
+}
+
+html.dark {
   --background: oklch(0.17 0.025 263);
   --foreground: oklch(0.96 0.01 250);
   --card: oklch(0.22 0.03 262 / 92%);
@@ -78,7 +118,6 @@
   --chart-3: oklch(0.71 0.12 145);
   --chart-4: oklch(0.82 0.11 82);
   --chart-5: oklch(0.68 0.12 300);
-  --radius: 0.625rem;
   --sidebar: oklch(0.21 0.03 258);
   --sidebar-foreground: oklch(0.97 0.01 250);
   --sidebar-primary: oklch(0.79 0.17 43);
@@ -87,6 +126,11 @@
   --sidebar-accent-foreground: oklch(0.95 0.01 250);
   --sidebar-border: oklch(0.39 0.025 258 / 45%);
   --sidebar-ring: oklch(0.74 0.11 198 / 65%);
+  --page-glow-1: oklch(0.79 0.17 43 / 18%);
+  --page-glow-2: oklch(0.74 0.11 198 / 16%);
+  --page-backdrop-top: oklch(0.18 0.03 262);
+  --page-backdrop-bottom: oklch(0.13 0.02 255);
+  --grid-line: oklch(1 0 0 / 0.03);
 }
 
 @layer base {
@@ -99,11 +143,15 @@
   body {
     @apply bg-background text-foreground;
     background-image:
-      radial-gradient(circle at top left, oklch(0.79 0.17 43 / 18%), transparent 28%),
-      radial-gradient(circle at 85% 10%, oklch(0.74 0.11 198 / 16%), transparent 26%),
-      linear-gradient(180deg, oklch(0.18 0.03 262), oklch(0.13 0.02 255));
+      radial-gradient(circle at top left, var(--page-glow-1), transparent 28%),
+      radial-gradient(circle at 85% 10%, var(--page-glow-2), transparent 26%),
+      linear-gradient(180deg, var(--page-backdrop-top), var(--page-backdrop-bottom));
     background-attachment: fixed;
     font-family: var(--font-sans-stack);
+    transition:
+      background-color 220ms ease,
+      color 220ms ease,
+      background-image 220ms ease;
   }
   ::selection {
     background: oklch(0.74 0.11 198 / 35%);
@@ -114,17 +162,60 @@
 @layer utilities {
   .surface-grid {
     background-image:
-      linear-gradient(to right, oklch(1 0 0 / 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(1 0 0 / 0.03) 1px, transparent 1px);
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
     background-size: 28px 28px;
   }
 
   .glass-panel {
     background: linear-gradient(
       180deg,
-      oklch(0.24 0.03 260 / 0.92),
-      oklch(0.19 0.03 258 / 0.88)
+      color-mix(in oklch, var(--card) 92%, transparent),
+      color-mix(in oklch, var(--background) 78%, transparent)
     );
     backdrop-filter: blur(18px);
+  }
+
+  .card-lift {
+    transition:
+      transform 260ms ease,
+      box-shadow 260ms ease,
+      border-color 260ms ease,
+      background-color 260ms ease;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 70px oklch(0.08 0.02 255 / 0.18);
+    border-color: color-mix(in oklch, var(--accent) 40%, var(--border));
+  }
+
+  html.dark .card-lift:hover {
+    box-shadow: 0 28px 85px oklch(0.02 0.01 255 / 0.45);
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklch, var(--foreground) 14%, transparent),
+      transparent
+    );
+    animation: shimmer 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
   }
 }

@@ -33,13 +33,13 @@ export function ArtistCard({
   const concerts = getConcertsByArtist(artist.id)
 
   return (
-    <Card className="glass-panel border border-border/60">
+    <Card className="glass-panel card-lift border border-border/60">
       <CardHeader className="gap-4">
         <Link href={`/concerts?artist=${artist.id}`} className="space-y-4">
           <div
-            className={`flex h-28 w-full items-end rounded-[1.75rem] bg-gradient-to-br ${gradientByArtist[artist.id] ?? "from-accent/50 to-primary/40"} p-5 transition duration-200 hover:scale-[1.01]`}
+            className={`flex h-28 w-full items-end rounded-[1.75rem] bg-gradient-to-br ${gradientByArtist[artist.id] ?? "from-accent/50 to-primary/40"} p-5 transition duration-300 group-hover/card:scale-[1.02]`}
           >
-            <div className="flex size-14 items-center justify-center rounded-2xl bg-black/20 font-heading text-xl font-bold text-white">
+            <div className="flex size-14 items-center justify-center rounded-2xl bg-black/20 font-heading text-xl font-bold text-white shadow-lg shadow-black/10 transition duration-300 group-hover/card:-translate-y-1">
               {getArtistInitials(artist)}
             </div>
           </div>

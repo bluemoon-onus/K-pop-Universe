@@ -38,6 +38,19 @@ export const defaultConcertFilters: ConcertFilters = {
   dateRange: "all",
 }
 
+export function getActiveConcertFilterCount(filters: ConcertFilters) {
+  return [
+    filters.query.trim().length > 0,
+    filters.artistIds.length > 0,
+    filters.city !== "all",
+    filters.countryCode !== "all",
+    filters.seller !== "all",
+    filters.status !== "all",
+    filters.eventType !== "all",
+    filters.dateRange !== "all",
+  ].filter(Boolean).length
+}
+
 function normalizeValue(value: string) {
   return value.toLowerCase().trim()
 }

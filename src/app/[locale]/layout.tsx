@@ -52,7 +52,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={getLocaleDirection(locale)}
       suppressHydrationWarning
-      className="h-full antialiased"
+      className="dark h-full antialiased"
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>

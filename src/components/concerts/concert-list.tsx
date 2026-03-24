@@ -38,13 +38,38 @@ export function ConcertList({
         {action}
       </div>
       {isLoading ? (
-        <div className="grid gap-4 xl:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-2">
           {Array.from({ length: 4 }).map((_, index) => (
-            <Skeleton key={`${title}-${index}`} className="h-72 rounded-[2rem]" />
+            <div
+              key={`${title}-${index}`}
+              className="glass-panel rounded-[2rem] border border-border/60 p-5"
+            >
+              <div className="flex items-center gap-2">
+                <Skeleton className="h-6 w-24 rounded-full" />
+                <Skeleton className="h-6 w-20 rounded-full" />
+              </div>
+              <div className="mt-5 flex items-center gap-3">
+                <Skeleton className="size-11 rounded-2xl" />
+                <div className="flex-1 space-y-2">
+                  <Skeleton className="h-4 w-28 rounded-full" />
+                  <Skeleton className="h-7 w-3/4 rounded-full" />
+                </div>
+              </div>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                <Skeleton className="h-16 rounded-[1.25rem]" />
+                <Skeleton className="h-16 rounded-[1.25rem]" />
+                <Skeleton className="h-16 rounded-[1.25rem]" />
+                <Skeleton className="h-16 rounded-[1.25rem]" />
+              </div>
+              <div className="mt-6 flex items-center justify-between gap-3 border-t border-border/60 pt-5">
+                <Skeleton className="h-6 w-28 rounded-full" />
+                <Skeleton className="h-10 w-32 rounded-full" />
+              </div>
+            </div>
           ))}
         </div>
       ) : concerts.length ? (
-        <div className="grid gap-4 xl:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-2">
           {concerts.map((concert) => (
             <ConcertCard key={concert.id} concert={concert} />
           ))}

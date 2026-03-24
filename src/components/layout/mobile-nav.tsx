@@ -16,6 +16,7 @@ import {
 import { Link, stripLocaleSegment } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 import { LocaleSwitcher } from "./locale-switcher"
+import { ThemeToggle } from "./theme-toggle"
 
 const navItems = [
   { href: "/", key: "home" },
@@ -69,7 +70,10 @@ export function MobileNav() {
           })}
         </div>
         <div className="border-t border-border/60 px-4 py-4">
-          <LocaleSwitcher className="justify-between" />
+          <div className="space-y-3">
+            <ThemeToggle className="w-full justify-center" />
+            <LocaleSwitcher className="justify-between" />
+          </div>
           <Button className="mt-4 w-full">{tCommon("buttons.signIn")}</Button>
         </div>
       </SheetContent>

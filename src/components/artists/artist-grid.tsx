@@ -9,7 +9,7 @@ export function ArtistGrid({
   showConcertLinks?: boolean
 }) {
   return (
-    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 2xl:grid-cols-5">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5">
       {artists.map((artist) => (
         <ArtistCard
           key={artist.id}

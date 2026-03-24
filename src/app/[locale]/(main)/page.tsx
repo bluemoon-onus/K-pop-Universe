@@ -82,7 +82,7 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-[1.75rem] border border-border/60 bg-black/15 p-5"
+                className="rounded-[1.75rem] border border-border/60 bg-foreground/[0.04] p-5"
               >
                 <p className="font-heading text-lg font-semibold text-foreground">{item.title}</p>
                 <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.body}</p>

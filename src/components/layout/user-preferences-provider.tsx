@@ -16,10 +16,13 @@ const STORAGE_KEYS = {
   session: "kpop-ticket-hub:session",
 } as const
 
+export type AppTheme = "dark" | "light"
+
 type SavedSession = {
   isLoggedIn: boolean
   email: string
   timeZone: string
+  theme: AppTheme
 }
 
 type UserPreferencesState = {
@@ -27,6 +30,7 @@ type UserPreferencesState = {
   isLoggedIn: boolean
   email: string
   timeZone: string
+  theme: AppTheme
   followedArtistIds: string[]
   alertPreferences: AlertPreference[]
 }
@@ -44,6 +48,7 @@ type UserPreferencesAction =
     }
   | { type: "set-email"; email: string }
   | { type: "set-timezone"; timeZone: string }
+  | { type: "set-theme"; theme: AppTheme }
   | { type: "set-login"; isLoggedIn: boolean }
 
 type UserPreferencesContextValue = {
@@ -51,6 +56,7 @@ type UserPreferencesContextValue = {
   isLoggedIn: boolean
   email: string
   timeZone: string
+  theme: AppTheme
   followedArtistIds: string[]
   alertPreferences: AlertPreference[]
   isArtistFollowed: (artistId: string) => boolean
@@ -65,6 +71,7 @@ type UserPreferencesContextValue = {
   ) => void
   setEmail: (nextEmail: string) => void
   setTimeZone: (nextTimeZone: string) => void
+  setTheme: (nextTheme: AppTheme) => void
   signInDemo: () => void
   signOutDemo: () => void
 }
@@ -78,6 +85,7 @@ const defaultState: UserPreferencesState = {
   isLoggedIn: false,
   email: mockUser.email,
   timeZone: mockUser.timezone,
+  theme: "dark",
   followedArtistIds: defaultFollowedArtistIds,
   alertPreferences: defaultAlertPreferences,
 }
@@ -101,6 +109,18 @@ function getBrowserTimeZone() {
   return Intl.DateTimeFormat().resolvedOptions().timeZone || mockUser.timezone
 }
 
+function applyThemeToDocument(theme: AppTheme) {
+  if (typeof document === "undefined") {
+    return
+  }
+
+  const root = document.documentElement
+
+  root.classList.remove("dark", "light")
+  root.classList.add(theme)
+  root.style.colorScheme = theme
+}
+
 function createAlertId(concertId: string) {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
     return `alert-${concertId}-${crypto.randomUUID()}`
@@ -120,6 +140,7 @@ function reducer(
       isLoggedIn: action.payload.isLoggedIn,
       email: action.payload.email,
       timeZone: action.payload.timeZone,
+      theme: action.payload.theme,
       followedArtistIds: action.payload.followedArtistIds,
       alertPreferences: action.payload.alertPreferences,
     }
@@ -173,6 +194,13 @@ function reducer(
     }
   }
 
+  if (action.type === "set-theme") {
+    return {
+      ...state,
+      theme: action.theme,
+    }
+  }
+
   if (action.type === "set-login") {
     return {
       ...state,
@@ -191,6 +219,7 @@ export function UserPreferencesProvider({ children }: { children: ReactNode }) {
       isLoggedIn: false,
       email: mockUser.email,
       timeZone: getBrowserTimeZone(),
+      theme: "dark",
     })
 
     dispatch({
@@ -201,6 +230,8 @@ export function UserPreferencesProvider({ children }: { children: ReactNode }) {
         alertPreferences: readStoredValue(STORAGE_KEYS.alerts, defaultAlertPreferences),
       },
     })
+
+    applyThemeToDocument(session.theme)
   }, [])
 
   useEffect(() => {
@@ -236,9 +267,18 @@ export function UserPreferencesProvider({ children }: { children: ReactNode }) {
         isLoggedIn: state.isLoggedIn,
         email: state.email,
         timeZone: state.timeZone,
+        theme: state.theme,
       } satisfies SavedSession),
     )
-  }, [state.email, state.hasHydrated, state.isLoggedIn, state.timeZone])
+  }, [state.email, state.hasHydrated, state.isLoggedIn, state.theme, state.timeZone])
+
+  useEffect(() => {
+    if (!state.hasHydrated) {
+      return
+    }
+
+    applyThemeToDocument(state.theme)
+  }, [state.hasHydrated, state.theme])
 
   function isArtistFollowed(artistId: string) {
     return state.followedArtistIds.includes(artistId)
@@ -279,6 +319,7 @@ export function UserPreferencesProvider({ children }: { children: ReactNode }) {
         isLoggedIn: state.isLoggedIn,
         email: state.email,
         timeZone: state.timeZone,
+        theme: state.theme,
         followedArtistIds: state.followedArtistIds,
         alertPreferences: state.alertPreferences,
         isArtistFollowed,
@@ -287,6 +328,7 @@ export function UserPreferencesProvider({ children }: { children: ReactNode }) {
         saveAlertPreference,
         setEmail: (email) => dispatch({ type: "set-email", email }),
         setTimeZone: (timeZone) => dispatch({ type: "set-timezone", timeZone }),
+        setTheme: (theme) => dispatch({ type: "set-theme", theme }),
         signInDemo: () => dispatch({ type: "set-login", isLoggedIn: true }),
         signOutDemo: () => dispatch({ type: "set-login", isLoggedIn: false }),
       }}

@@ -37,7 +37,7 @@ export function ConcertCard({ concert }: { concert: Concert }) {
   const priceRange = formatConcertPriceRangeLabel(prices, locale)
 
   return (
-    <Card className="glass-panel border border-border/60">
+    <Card className="glass-panel card-lift border border-border/60">
       <CardHeader className="gap-4">
         <div className="flex flex-wrap items-center gap-2">
           <SellerBadge seller={concert.officialSeller} />
@@ -50,7 +50,7 @@ export function ConcertCard({ concert }: { concert: Concert }) {
         </div>
         <div className="space-y-2">
           <div className="flex items-center gap-3">
-            <div className="flex size-11 items-center justify-center rounded-2xl bg-white/10 font-heading text-sm font-semibold text-white">
+            <div className="flex size-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/80 via-accent/45 to-chart-5/40 font-heading text-sm font-semibold text-white shadow-lg shadow-primary/15 transition duration-300 group-hover/card:scale-105">
               {artist ? artist.nameEn.slice(0, 2).toUpperCase() : concert.city.slice(0, 2).toUpperCase()}
             </div>
             <p className="text-sm font-medium text-accent">
