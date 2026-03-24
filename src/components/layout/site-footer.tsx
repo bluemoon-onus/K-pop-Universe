@@ -33,7 +33,7 @@ export function SiteFooter() {
                   key={seller}
                   href={sellerLinks[seller]}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="rounded-full border border-border/70 px-3 py-2 text-sm text-foreground transition hover:border-accent hover:text-accent"
                 >
                   {t(`sellers.${seller}`)}

@@ -44,3 +44,15 @@ export const ticketPhaseTypes: TicketPhaseType[] = [
   "general_sale",
   "additional_sale",
 ]
+
+export const HOURS_OPENING_SOON = 24
+export const HOURS_THIS_WEEK = 24 * 7
+
+export const TIMEZONE_OPTIONS = [
+  "Asia/Seoul",
+  "Asia/Tokyo",
+  "Asia/Bangkok",
+  "Europe/London",
+  "America/Los_Angeles",
+  "America/New_York",
+] as const

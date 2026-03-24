@@ -44,7 +44,10 @@ export function ConcertDetail({ concert }: { concert: Concert }) {
   const nextPhase = getNextTicketPhase(concert.id, mockNow)
   const fallbackPhase = nextPhase ?? phases[phases.length - 1] ?? null
   const [shareState, setShareState] = useState<"idle" | "copied">("idle")
-  const officialLinkAvailable = concert.officialTicketUrl !== "#"
+  const officialLinkAvailable =
+    concert.officialTicketUrl !== "#" &&
+    (concert.officialTicketUrl.startsWith("https://") ||
+      concert.officialTicketUrl.startsWith("http://"))
   const officialCtaDisabled =
     concert.status === "cancelled" ||
     concert.status === "sold_out" ||

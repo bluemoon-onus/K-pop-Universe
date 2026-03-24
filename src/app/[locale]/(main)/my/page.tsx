@@ -13,15 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { mockArtists, featuredArtists } from "@/data/mock-artists"
 import { getConcertById } from "@/data/mock-concerts"
-
-const TIME_ZONE_OPTIONS = [
-  "Asia/Seoul",
-  "Asia/Tokyo",
-  "Asia/Bangkok",
-  "Europe/London",
-  "America/Los_Angeles",
-  "America/New_York",
-]
+import { TIMEZONE_OPTIONS } from "@/lib/constants"
 
 export default function MyPage() {
   const tCommon = useTranslations("common")
@@ -164,7 +156,7 @@ export default function MyPage() {
                 onChange={(event) => setTimeZone(event.target.value)}
                 className="w-full rounded-2xl border border-border/70 bg-background/80 px-3 py-3 text-sm text-foreground outline-none transition focus:border-ring"
               >
-                {Array.from(new Set([...TIME_ZONE_OPTIONS, timeZone])).map((option) => (
+                {Array.from(new Set([...TIMEZONE_OPTIONS, timeZone])).map((option) => (
                   <option key={option} value={option}>
                     {option}
                   </option>

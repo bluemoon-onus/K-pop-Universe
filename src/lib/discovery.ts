@@ -10,6 +10,7 @@ import {
   differenceInHours,
 } from "date-fns"
 import { getConcertArtist, getNextTicketPhase, mockNow } from "@/data/mock-concerts"
+import { HOURS_OPENING_SOON, HOURS_THIS_WEEK } from "@/lib/constants"
 import type { Concert, ConcertEventType, ConcertSeller, ConcertStatus } from "@/types"
 
 export type ConcertSort = "opening" | "date" | "updated"
@@ -189,12 +190,12 @@ export function groupConcertsByTiming(
       : null
     const concertInHours = differenceInHours(concert.startDate, referenceDate)
 
-    if (phaseInHours !== null && phaseInHours >= 0 && phaseInHours <= 24) {
+    if (phaseInHours !== null && phaseInHours >= 0 && phaseInHours <= HOURS_OPENING_SOON) {
       openingSoon.push(concert)
       return
     }
 
-    if (concertInHours >= 0 && concertInHours <= 24 * 7) {
+    if (concertInHours >= 0 && concertInHours <= HOURS_THIS_WEEK) {
       thisWeek.push(concert)
       return
     }

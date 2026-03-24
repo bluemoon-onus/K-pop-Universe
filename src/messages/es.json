@@ -1,0 +1,275 @@
+{
+  "common": {
+    "brand": "K-pop Ticket Hub",
+    "tagline": "Descubrimiento y alertas con enlaces oficiales",
+    "metadata": {
+      "title": "K-pop Ticket Hub",
+      "description": "Plataforma global de descubrimiento de conciertos K-pop y alertas de apertura de venta de entradas, solo con enlaces oficiales."
+    },
+    "navigation": {
+      "home": "Inicio",
+      "artists": "Artistas",
+      "concerts": "Conciertos",
+      "my": "Mi perfil",
+      "mainNav": "Navegación principal"
+    },
+    "buttons": {
+      "browseConcerts": "Ver conciertos",
+      "followArtists": "Seguir artistas",
+      "viewDetails": "Ver detalles",
+      "goToOfficialSite": "Ir al sitio oficial de venta",
+      "setAlert": "Configurar alerta",
+      "share": "Compartir",
+      "copied": "Enlace copiado",
+      "menu": "Abrir menú",
+      "close": "Cerrar",
+      "follow": "Seguir",
+      "following": "Siguiendo",
+      "signIn": "Iniciar sesión",
+      "signOut": "Cerrar sesión",
+      "retry": "Intentar de nuevo",
+      "saveAlerts": "Guardar alertas",
+      "search": "Buscar",
+      "seeAll": "Ver todo",
+      "browseArtists": "Ver artistas",
+      "clearFilters": "Limpiar filtros",
+      "previous": "Anterior",
+      "next": "Siguiente"
+    },
+    "labels": {
+      "ticketOpens": "Apertura de venta",
+      "officialOnly": "Solo enlaces oficiales",
+      "lastUpdated": "Última actualización",
+      "fanclubPresale": "Preventa fanclub",
+      "generalSale": "Venta general",
+      "additionalSale": "Venta adicional",
+      "venue": "Recinto",
+      "city": "Ciudad",
+      "country": "País",
+      "timezone": "Zona horaria",
+      "priceRange": "Rango de precios",
+      "agePolicy": "Política de edad",
+      "officialSeller": "Vendedor oficial",
+      "source": "Fuente oficial",
+      "yourTime": "Tu hora",
+      "sourceTime": "Hora de origen",
+      "dataFreshness": "Frescura de datos",
+      "openingSoon": "Abriendo pronto",
+      "thisWeek": "Esta semana",
+      "later": "Más adelante",
+      "calendarView": "Vista de calendario",
+      "listView": "Vista de lista",
+      "date": "Fecha",
+      "status": "Estado"
+    },
+    "status": {
+      "upcoming": "Próximo",
+      "open": "Abierto ahora",
+      "sold_out": "Agotado",
+      "ended": "Finalizado",
+      "cancelled": "Cancelado"
+    },
+    "sellers": {
+      "NOL": "NOL Ticket",
+      "INTERPARK": "Interpark",
+      "TICKETLINK": "Ticketlink",
+      "YES24": "YES24",
+      "WEVERSE": "Weverse",
+      "OTHER": "Socio oficial"
+    },
+    "categories": {
+      "boy_group": "Grupo masculino",
+      "girl_group": "Grupo femenino",
+      "solo": "Solista",
+      "band": "Banda",
+      "other": "Otro"
+    },
+    "eventTypes": {
+      "concert": "Concierto",
+      "fan_meeting": "Fan meeting",
+      "festival": "Festival",
+      "musical": "Musical",
+      "other": "Otro"
+    },
+    "countdown": {
+      "days": "d",
+      "hours": "h",
+      "minutes": "m",
+      "seconds": "s",
+      "live": "Abierto ahora",
+      "ended": "Cerrado",
+      "ariaLabel": "Cuenta regresiva apertura de venta"
+    },
+    "states": {
+      "loadingTitle": "Cargando las últimas señales de venta",
+      "loadingDescription": "Preparando páginas de artistas, enlaces y ventanas de apertura.",
+      "emptyTitle": "No hay conciertos para esta vista",
+      "emptyDescription": "Prueba con otro artista, ciudad o rango de fechas. Solo mostramos enlaces oficiales.",
+      "errorTitle": "Algo interrumpió la carga de la página",
+      "errorDescription": "Recarga la página o inténtalo en un momento."
+    },
+    "localeSwitcher": {
+      "label": "Idioma"
+    },
+    "theme": {
+      "label": "Tema",
+      "light": "Claro",
+      "dark": "Oscuro"
+    },
+    "toast": {
+      "dismiss": "Cerrar",
+      "followed": "Artista añadido a tu lista de seguidos.",
+      "unfollowed": "Artista eliminado de tu lista de seguidos.",
+      "alertSaved": "Configuración de alerta guardada.",
+      "alertDuplicate": "Esa configuración de alerta ya está activa.",
+      "linkCopied": "Enlace del concierto copiado.",
+      "linkShared": "Hoja de compartir abierta."
+    },
+    "footer": {
+      "disclaimerTitle": "Solo utilidad de enlaces oficiales",
+      "disclaimerBody": "No vendemos entradas. Los horarios, precios y políticas pueden cambiar en cualquier momento; siempre confirma con el vendedor oficial antes de pagar.",
+      "sellerLinks": "Accesos directos a vendedores oficiales",
+      "freshness": "Cada página de detalle de concierto muestra su hora de última verificación."
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "No te pierdas nunca más una apertura de venta K-pop",
+      "title": "Consulta preventas, convierte zonas horarias y accede al vendedor oficial antes de que empiece la cola.",
+      "subtitle": "Descubrimiento centrado en artistas para fans que quieren ir directo desde el descubrimiento a la compra.",
+      "searchPlaceholder": "Buscar artista, concierto o ciudad"
+    },
+    "sections": {
+      "upcoming": "Próximas aperturas de venta",
+      "featuredArtists": "Artistas destacados",
+      "monthConcerts": "Conciertos K-pop este mes",
+      "whyTitle": "Por qué los fans usan este servicio"
+    },
+    "why": {
+      "presaleTitle": "Claridad en la preventa de fanclub",
+      "presaleBody": "Consulta los requisitos de membresía y las fases de venta antes de que abra la cola.",
+      "timezoneTitle": "Conversión de zona horaria",
+      "timezoneBody": "Ve la hora de origen y tu hora local en paralelo.",
+      "officialTitle": "Solo enlaces oficiales",
+      "officialBody": "Ve directo desde nuestra página de detalle al vendedor o promotor oficial."
+    }
+  },
+  "artists": {
+    "title": "Encuentra artistas rápido y sigue los que te importan.",
+    "subtitle": "Navega por categorías, consulta nombres en coreano e inglés y mantén tu próxima apertura en una lista.",
+    "searchPlaceholder": "Buscar artistas en coreano o inglés",
+    "featuredLabel": "Destacado ahora",
+    "trackedConcerts": "{count, plural, one {# concierto rastreado} other {# conciertos rastreados}}",
+    "allCategories": "Todos",
+    "noResultsTitle": "Ningún artista coincide con esta búsqueda",
+    "noResultsDescription": "Prueba otra ortografía, alias o filtro de categoría.",
+    "viewConcerts": "Ver conciertos"
+  },
+  "concerts": {
+    "title": "Explora conciertos por urgencia de venta, no solo por fecha.",
+    "subtitle": "Las tarjetas estructuradas muestran vendedor, estado, recinto y hora de apertura de un vistazo.",
+    "listViewActive": "Vista de lista activa",
+    "calendarSoon": "La vista de calendario está prevista para la siguiente fase",
+    "ticketPhasesCount": "{count, plural, one {# fase de venta} other {# fases de venta}}",
+    "filters": {
+      "title": "Filtros",
+      "helper": "Filtra por vendedor, ciudad y estado de la venta.",
+      "resultsCount": "{count, plural, one {# concierto listo para explorar} other {# conciertos listos para explorar}}",
+      "searchPlaceholder": "Buscar conciertos, recintos, artistas o ciudades",
+      "artist": "Artistas",
+      "city": "Ciudad",
+      "country": "País",
+      "seller": "Vendedor",
+      "status": "Estado",
+      "eventType": "Tipo de evento",
+      "dateWindow": "Ventana de fechas",
+      "sortBy": "Ordenar por",
+      "allCities": "Todas las ciudades",
+      "allCountries": "Todos los países",
+      "allSellers": "Todos los vendedores",
+      "allStatuses": "Todos los estados",
+      "allTypes": "Todos los tipos de evento",
+      "dateRange": {
+        "all": "Todas las fechas",
+        "30d": "Próximos 30 días",
+        "60d": "Próximos 60 días"
+      }
+    },
+    "sort": {
+      "opening": "Apertura de venta más próxima",
+      "date": "Fecha del concierto",
+      "updated": "Actualizado más recientemente"
+    },
+    "states": {
+      "filteredTitle": "Ningún concierto coincide con tus filtros",
+      "filteredDescription": "Restablece uno o dos filtros para ampliar los resultados."
+    },
+    "calendar": {
+      "instructions": "Selecciona una fecha para ver los conciertos programados para ese día.",
+      "selectedDate": "Fecha seleccionada",
+      "noConcertsTitle": "No hay conciertos en esta fecha",
+      "noConcertsDescription": "Elige otro día o amplía tus filtros."
+    },
+    "detail": {
+      "overview": "Resumen",
+      "ticketOpening": "Apertura de venta",
+      "membership": "Requisitos de fanclub / membresía",
+      "prices": "Precios",
+      "venueInfo": "Info del recinto",
+      "importantNotes": "Notas importantes",
+      "officialSource": "Fuente oficial",
+      "missingPrices": "Los detalles de precios siguen pendientes del vendedor oficial.",
+      "missingPresale": "Aún no se ha publicado ninguna ventana de preventa de fanclub.",
+      "externalUnavailable": "El enlace del vendedor oficial no está disponible temporalmente.",
+      "tba": "Por anunciar",
+      "attendeeNameRequired": "El nombre del asistente debe coincidir con el ID usado en el recinto.",
+      "attendeeNameNotListed": "No hay ninguna regla de coincidencia de nombre actualmente listada.",
+      "passportRequired": "Puede ser necesario pasaporte o DNI para recoger la entrada.",
+      "passportNotListed": "El requisito de pasaporte no está indicado actualmente.",
+      "onsitePickupOnly": "La recogida de entradas está marcada como solo en sitio.",
+      "onsitePickupNotListed": "No hay restricción de recogida solo en sitio.",
+      "antiMacroRule": "Las compras masivas o automáticas pueden ser canceladas.",
+      "antiMacroNotListed": "No se ha detectado advertencia anti-macro aún.",
+      "soldOutNotice": "Este concierto está agotado. Sigue el origen oficial para ver si hay más entradas.",
+      "cancelledNotice": "Este concierto ha sido cancelado. Consulta el origen oficial para el último aviso.",
+      "loginAlertHint": "Inicia sesión para gestionar alertas desde este panel."
+    }
+  },
+  "alerts": {
+    "title": "Mis alertas / Mis artistas",
+    "subtitle": "Gestiona los artistas seguidos y los tiempos de recordatorio en un solo lugar, con el correo electrónico como canal principal.",
+    "tabs": {
+      "artists": "Mis artistas",
+      "alerts": "Mis alertas"
+    },
+    "remind24h": "24 horas antes",
+    "remind1h": "1 hora antes",
+    "remind10m": "10 minutos antes",
+    "emailEnabled": "Alertas por correo activas",
+    "pushSoon": "Las notificaciones push llegarán después del MVP",
+    "panelTitle": "Alertas de apertura de venta",
+    "panelBody": "Elige los recordatorios que quieres antes de que comience esta venta.",
+    "success": "Alerta guardada. Seguiremos esta apertura por ti.",
+    "duplicate": "Esa configuración de alerta ya está activa.",
+    "emailOn": "Activado",
+    "emailOff": "Desactivado",
+    "emptyArtistsTitle": "Sigue a tus artistas favoritos para empezar",
+    "emptyArtistsDescription": "Una vez que sigas artistas, aparecerán aquí para acceso rápido.",
+    "emptyAlertsTitle": "Aún no hay alertas guardadas",
+    "emptyAlertsDescription": "Configura recordatorios desde la página de detalle de un concierto.",
+    "settingsTitle": "Configuración",
+    "languageSetting": "Idioma",
+    "themeSetting": "Tema",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "nombre@ejemplo.com",
+    "timezoneLabel": "Zona horaria",
+    "loggedOutTitle": "Inicia sesión para gestionar tus alertas y artistas seguidos",
+    "loggedOutDescription": "Este MVP usa una sesión de demostración local, así que tus seguidos y alertas se guardan en este dispositivo.",
+    "signedInAs": "Sesión iniciada como {email}"
+  },
+  "auth": {
+    "signIn": "Iniciar sesión",
+    "signUp": "Crear cuenta",
+    "hint": "Inicia sesión, sigue artistas y mantén tus recordatorios sincronizados."
+  }
+}
