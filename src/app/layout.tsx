@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next"
+import { Analytics } from "@vercel/analytics/next"
 import { getLocaleDirection } from "@/lib/locale-utils"
 import { getSiteUrl } from "@/lib/site"
 import "./globals.css"
@@ -36,9 +37,12 @@ export default async function RootLayout({
       lang={activeLocale}
       dir={getLocaleDirection(activeLocale)}
       suppressHydrationWarning
-      className="dark h-full antialiased"
+      className="h-full antialiased"
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
